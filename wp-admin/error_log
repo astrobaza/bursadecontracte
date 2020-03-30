@@ -1,0 +1,22 @@
+[17-Mar-2020 15:11:08 UTC] PHP Warning:  in_array() expects parameter 2 to be array, boolean given in /home/icontrac/public_html/wp-content/plugins/pagelayer/main/settings.php on line 518
+[25-Mar-2020 20:41:46 Etc/UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/icontrac/public_html/wp-content/plugins/upme/classes/class-upme-options.php on line 33
+[25-Mar-2020 20:48:06 Etc/UTC] [sabai][ERROR] SabaiFramework_DB_QueryException: Table 'icontrac_wp281.wptr_sabai_system_addon' doesn't exist SQL: SELECT * FROM wptr_sabai_system_addon system_addon WHERE 1=1 ORDER BY addon_priority DESC in /home/icontrac/public_html/wp-content/plugins/sabai/lib/SabaiFramework/DB.php:87
+Stack trace:
+#0 /home/icontrac/public_html/wp-content/plugins/sabai/lib/SabaiFramework/Model/Gateway.php(158): SabaiFramework_DB->query('SELECT * FROM w...', 0, 0)
+#1 /home/icontrac/public_html/wp-content/plugins/sabai/lib/SabaiFramework/Model/Gateway.php(43): SabaiFramework_Model_Gateway->selectBySQL('SELECT * FROM w...', 0, 0, Array, Array, NULL)
+#2 /home/icontrac/public_html/wp-content/plugins/sabai/lib/SabaiFramework/Model/EntityRepository.php(113): SabaiFramework_Model_Gateway->selectByCriteria(Object(SabaiFramework_Criteria_Empty), Array, 0, 0, Array, Array)
+#3 /home/icontrac/public_html/wp-content/plugins/sabai/lib/SabaiFramework/Model/EntityRepository.php(128): SabaiFramework_Model_EntityRepository->fetchByCriteria(Object(SabaiFramework_Criteria_Empty), 0, 0, 'priority', 'DESC')
+#4 /home/icontrac/public_html/wp-content/plugins/sabai/lib/Sabai.php(312): SabaiFramework_Model_EntityRepository->fetch(0, 0, 'priority', 'DESC')
+#5 /home/icontrac/public_html/wp-content/plugins/sabai/lib/Sabai.php(387): Sabai->getInstalledAddons(true)
+#6 /home/icontrac/public_html/wp-content/plugins/sabai/lib/Sabai.php(77): Sabai->_loadAddons(true)
+#7 /home/icontrac/public_html/wp-content/plugins/sabai/lib/Sabai/Platform/WordPress.php(1129): Sabai->reloadAddons()
+#8 /home/icontrac/public_html/wp-content/plugins/sabai/lib/Sabai/Platform/WordPress/include/activate.php(22): Sabai_Platform_WordPress->getSabai(true, true)
+#9 /home/icontrac/public_html/wp-content/plugins/sabai/lib/Sabai/Platform/WordPress.php(1631): sabai_platform_wordpress_activate(Object(Sabai_Platform_WordPress))
+#10 /home/icontrac/public_html/wp-content/plugins/sabai/sabai.php(51): Sabai_Platform_WordPress->activate()
+#11 /home/icontrac/public_html/wp-includes/class-wp-hook.php(288): sabai_wordpress_activation_hook(false)
+#12 /home/icontrac/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#13 /home/icontrac/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#14 /home/icontrac/public_html/wp-admin/includes/plugin.php(681): do_action('activate_sabai/...', false)
+#15 /home/icontrac/public_html/wp-admin/plugins.php(44): activate_plugin('sabai/sabai.php', 'https://www.bur...', false)
+#16 {main}
+

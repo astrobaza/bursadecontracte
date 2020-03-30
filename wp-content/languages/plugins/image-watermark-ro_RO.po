@@ -1,0 +1,445 @@
+# Translation of Plugins - Image Watermark - Stable (latest release) in Romanian
+# This file is distributed under the same license as the Plugins - Image Watermark - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2017-08-17 20:08:43+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < 20)) ? 1 : 2);\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+"Language: ro\n"
+"Project-Id-Version: Plugins - Image Watermark - Stable (latest release)\n"
+
+#: includes/class-settings.php:138
+msgid "Speed up your site with <a href=\"%s\" target=\"_blank\">ShortPixel</a>. Sign up as Image Watermark user and get 50&#37; extra monthly optimizations!"
+msgstr "Accelerează-ți situl cu <a href=\"%s\" target=\"_blank\">ShortPixel</a>. Înregistrează-te ca utilizator Image Watermark și primești 50&#37; optimizări lunare suplimentare!"
+
+#: includes/class-settings.php:137
+msgid "Need image optimization?"
+msgstr "Ai nevoie de optimizare imagine?"
+
+#: image-watermark.php:709
+msgid "Watermark prevented, this is your selected watermark image"
+msgstr "Filigran împiedicat, aceasta este imaginea filigran selectată de tine"
+
+#: includes/class-settings.php:726
+msgid "Toggle panel"
+msgstr "Comută panoul"
+
+#: includes/class-settings.php:683
+msgid "Backup the full size image."
+msgstr "Fă copie de rezervă a imaginii de dimensiune completă."
+
+#: includes/class-settings.php:93
+msgid "Backup full size image"
+msgstr "Fă copie de rezervă imagine de dimensiune completă"
+
+#: image-watermark.php:1044
+msgid "Your uploads folder is not writable so we can't create a backup of your image uploads. We've disabled this feature for now."
+msgstr "Dosarul tău de încărcări nu poate fi scris deci nu putem crea o copie de rezervă a încărcărilor de imagini. Am dezactivat această funcționalitate pentru moment."
+
+#: image-watermark.php:1044 includes/class-settings.php:92
+msgid "Image backup"
+msgstr "Copie de rezervă imagine"
+
+#: image-watermark.php:328
+msgid "Dismiss this notice."
+msgstr "Respinge această notificare."
+
+#: image-watermark.php:327
+msgid "Bulk action is currently running, please wait."
+msgstr "Acțiunea în masă rulează acum, te rog așteaptă."
+
+#: image-watermark.php:325
+msgid "Watermark was succesfully removed from %s images."
+msgstr "Filigranul a fost înlăturat cu succes de pe %s imagini."
+
+#: image-watermark.php:324 image-watermark.php:649
+msgid "Watermark was succesfully removed from 1 image."
+msgstr "Filigranul a fost înlăturat cu succes de pe 1 imagine."
+
+#: image-watermark.php:323 image-watermark.php:647
+msgid "Watermark could not be removed from selected files or no valid images (JPEG, PNG) were selected."
+msgstr "Filigranul nu a putut fi înlăturat din fișierele selectate sau nu a fost selectată nicio imagine validă (JPEG, PNG)."
+
+#: image-watermark.php:322
+msgid "Watermark was succesfully applied to %s images."
+msgstr "Filigranul a fost aplicat cu succes pe %s imagini."
+
+#: image-watermark.php:248 image-watermark.php:450
+msgid "Remove watermark"
+msgstr "Înlătură filigran"
+
+#: includes/class-settings.php:292
+msgid "Select extension."
+msgstr "Selectează extensie."
+
+#: includes/class-settings.php:60
+msgid "PHP library"
+msgstr "Bibliotecă PHP"
+
+#. Author URI of the plugin/theme
+msgid "http://www.dfactory.eu/"
+msgstr "http://www.dfactory.eu/"
+
+#. Author of the plugin/theme
+msgid "dFactory"
+msgstr "dFactory"
+
+#. Description of the plugin/theme
+msgid "Image Watermark allows you to automatically watermark images uploaded to the WordPress Media Library and bulk watermark previously uploaded images."
+msgstr "Image Watermark îți permite să filigranezi automat imaginile încărcate în Bibliotecă Media WordPress și să filigranezi în masă imaginile încărcate anterior."
+
+#. Plugin URI of the plugin/theme
+msgid "http://www.dfactory.eu/plugins/image-watermark/"
+msgstr "http://www.dfactory.eu/plugins/image-watermark/"
+
+#: image-watermark.php:1309
+msgid "Settings"
+msgstr "Setări"
+
+#: image-watermark.php:1286
+msgid "Support"
+msgstr "Suport"
+
+#: includes/class-settings.php:268
+msgid "Watermark will not be applied when no image sizes are selected."
+msgstr "Filigranul nu va fi aplicat când nu sunt selectate dimensiunile imaginii."
+
+#: includes/class-settings.php:265
+msgid "Watermark will not be applied when watermark image is not set."
+msgstr "Filigranul nu va fi aplicat când imaginea filigran nu este setată."
+
+#: includes/class-settings.php:260
+msgid "Settings restored to defaults."
+msgstr "Setări restaurate la valorile implicite."
+
+#: includes/class-settings.php:255
+msgid "Settings saved."
+msgstr "Setări salvate."
+
+#: includes/class-settings.php:669
+msgid "Enable image protection for logged-in users also"
+msgstr "Activează, de asemenea, protecția imaginii pentru utilizatori autentificați"
+
+#: includes/class-settings.php:655
+msgid "Prevent drag and drop"
+msgstr "Împiedică trage și plasează"
+
+#: includes/class-settings.php:641
+msgid "Disable right mouse click on images"
+msgstr "Dezactivează clic dreapta pe maus pentru imagini"
+
+#: includes/class-settings.php:628
+msgid "Select baseline or progressive image format."
+msgstr "Selectează linie de referință sau format de imagine progresiv."
+
+#: includes/class-settings.php:624
+msgid "progressive"
+msgstr "progresiv"
+
+#: includes/class-settings.php:622
+msgid "baseline"
+msgstr "linie de referință"
+
+#: includes/class-settings.php:609 includes/class-settings.php:703
+msgid "Set output image quality."
+msgstr "Setează calitatea imaginii de ieșire."
+
+#: includes/class-settings.php:590
+msgid "Enter a number ranging from 0 to 100. 0 makes watermark image completely transparent, 100 shows it as is."
+msgstr "Introdu un număr cuprins între 0 și 100. 0 face filigranul complet transparent, 100 îl afișează așa cum este."
+
+#: includes/class-settings.php:571
+msgid "This value will be used if \"scaled\" method if selected above. <br />Enter a number ranging from 0 to 100. 100 makes width of watermark image equal to width of the image it is applied to."
+msgstr "Această valoare va fi utilizată dacă metoda \"scalare\" este selectată mai sus. <br />Introdu un număr cuprins între 0 și 100. 100 face lățimea filigranului egală cu lățimea imaginii pe care este aplicat."
+
+#: includes/class-settings.php:552
+msgid "Those dimensions will be used if \"custom\" method is selected above."
+msgstr "Aceste dimensiuni vor fi utilizate dacă metoda „personalizat” este selectată mai sus."
+
+#: includes/class-settings.php:535
+msgid "Select method of aplying watermark size."
+msgstr "Alege metoda de aplicare a dimensiunii filigranului."
+
+#: includes/class-settings.php:532
+msgid "scaled"
+msgstr "scalat"
+
+#: includes/class-settings.php:530
+msgid "custom"
+msgstr "personalizat"
+
+#: includes/class-settings.php:528
+msgid "original"
+msgstr "original"
+
+#: includes/class-settings.php:475
+msgid "You have to save changes after the selection or removal of the image."
+msgstr "Trebuie să salvezi modificările după selectarea sau înlăturarea imaginii."
+
+#: includes/class-settings.php:474
+msgid "Remove image"
+msgstr "Înlătură imaginea"
+
+#: includes/class-settings.php:473
+msgid "Select image"
+msgstr "Selectează imagine"
+
+#: includes/class-settings.php:453 includes/class-settings.php:550
+msgid "y:"
+msgstr "y:"
+
+#: image-watermark.php:286 includes/class-settings.php:451
+#: includes/class-settings.php:453 includes/class-settings.php:511
+#: includes/class-settings.php:548 includes/class-settings.php:550
+msgid "px"
+msgstr "px"
+
+#: includes/class-settings.php:451 includes/class-settings.php:548
+msgid "x:"
+msgstr "x:"
+
+#: includes/class-settings.php:438
+msgid "Choose the position of watermark image."
+msgstr "Alege poziția imaginii filigranului."
+
+#: includes/class-settings.php:405
+msgid "Delete all database settings on plugin deactivation."
+msgstr "Șterge toate setările bazei de date la dezactivarea modulului."
+
+#: includes/class-settings.php:392
+msgid "<br /><strong>Notice:</strong> This functionality works only if uploaded images are processed using WordPress native upload methods."
+msgstr "<br /><strong>Observație:</strong> Această funcționalitate lucrează doar dacă imaginile încărcate sunt prelucrate folosind metode de încărcare native WordPress."
+
+#: includes/class-settings.php:390
+msgid "Enable frontend image uploading. (uploading script is not included, but you may use a plugin or custom code)."
+msgstr "Activează încărcarea imaginii în partea din față a sitului (scriptul de încărcare nu este inclus, dar poți folosi un modul sau cod personalizat)."
+
+#: includes/class-settings.php:376
+msgid "Check custom post types on which watermark should be applied to uploaded images."
+msgstr "Alege tipurile de articole personalizate pe ale căror imagini încărcate trebuie să fie aplicat filigranul."
+
+#: includes/class-settings.php:362
+msgid "on selected post types only"
+msgstr "numai pentru tipuri de articol selectate"
+
+#: includes/class-settings.php:361
+msgid "everywhere"
+msgstr "peste tot"
+
+#: includes/class-settings.php:344
+msgid "Check image sizes on which watermark should appear.<br /><strong>IMPORTANT:</strong> checking full size is NOT recommended as it's the original image. You may need it later - for removing or changing watermark, image sizes regeneration or any other image manipulations. Use it only if you know what you are doing."
+msgstr "Verifică dimensiunile imaginilor pe care dorești să apară filigranul.<br /><strong>IMPORTANT:</strong> bifarea dimensiunii complete NU este recomandată deoarece este imaginea originală. S-ar putea să ai nevoie de ea mai târziu - pentru eliminarea sau schimbarea filigranului, regenerarea dimensiunilor de imagine sau orice alte manevre. Folosește-o doar dacă știi ce faci."
+
+#: includes/class-settings.php:320
+msgid "Enable Apply Watermark option for images in Media Library."
+msgstr "Activează opțiunea Aplică filigran pentru imaginile din Bibliotecă Media."
+
+#: includes/class-settings.php:306
+msgid "Enable watermark for uploaded images."
+msgstr "Activează filigranare pentru imaginile încărcate"
+
+#: includes/class-settings.php:89
+msgid "Logged-in users"
+msgstr "Utilizatori autentificați"
+
+#: includes/class-settings.php:88
+msgid "Drag and drop"
+msgstr "Trage și plasează"
+
+#: includes/class-settings.php:87
+msgid "Right click"
+msgstr "Clic dreapta"
+
+#: includes/class-settings.php:86
+msgid "Image protection"
+msgstr "Protecție imagine"
+
+#: includes/class-settings.php:83
+msgid "Image format"
+msgstr "Format de imagine"
+
+#: includes/class-settings.php:82
+msgid "Image quality"
+msgstr "Calitate imagine"
+
+#: includes/class-settings.php:81
+msgid "Watermark transparency / opacity"
+msgstr "Transparență / opacitate filigran"
+
+#: includes/class-settings.php:80
+msgid "Scale of watermark in relation to image width"
+msgstr "Scalare filigran în relație cu lățimea imaginii"
+
+#: includes/class-settings.php:79
+msgid "Watermark custom size"
+msgstr "Dimensiune personalizată filigran"
+
+#: includes/class-settings.php:78
+msgid "Watermark size"
+msgstr "Dimensiune filigran"
+
+#: includes/class-settings.php:77
+msgid "Watermark preview"
+msgstr "Previzualizare filigran"
+
+#: includes/class-settings.php:75 includes/class-settings.php:76
+msgid "Watermark image"
+msgstr "Imagine filigran"
+
+#: includes/class-settings.php:72
+msgid "Watermark offset"
+msgstr "Deplasare filigran"
+
+#: includes/class-settings.php:71
+msgid "Watermark alignment"
+msgstr "Aliniere filigran"
+
+#: includes/class-settings.php:70
+msgid "Watermark position"
+msgstr "Poziție filigran"
+
+#: includes/class-settings.php:67
+msgid "Deactivation"
+msgstr "Dezactivare"
+
+#: includes/class-settings.php:66
+msgid "Frontend watermarking"
+msgstr "Filigranare în față"
+
+#: includes/class-settings.php:65
+msgid "Enable watermark for"
+msgstr "Pornește filigranarea pentru"
+
+#: includes/class-settings.php:64
+msgid "Manual watermarking"
+msgstr "Filigranare manuală"
+
+#: includes/class-settings.php:63
+msgid "Automatic watermarking"
+msgstr "Filigranare automată"
+
+#: includes/class-settings.php:56
+msgid "General settings"
+msgstr "Setări generale"
+
+#: includes/class-settings.php:152
+msgid "Reset to defaults"
+msgstr "Resetează la valorile implicite"
+
+#: includes/class-settings.php:133
+msgid "Created by"
+msgstr "Creat de"
+
+#: includes/class-settings.php:130
+msgid "WordPress plugins"
+msgstr "Module WordPress"
+
+#: includes/class-settings.php:130
+msgid "Check out our other"
+msgstr "Vezi și celelalte"
+
+#: includes/class-settings.php:129
+msgid "plugin page"
+msgstr "pagină modul"
+
+#: includes/class-settings.php:129
+msgid "Blog about it & link to the"
+msgstr "Scrie despre el și dă legătura"
+
+#: includes/class-settings.php:128
+msgid "on WordPress.org"
+msgstr "pe WordPress.org"
+
+#: includes/class-settings.php:128
+msgid "Rate it 5"
+msgstr "Evaluează-l la 5 stele"
+
+#: includes/class-settings.php:127
+msgid "Do you like this plugin?"
+msgstr "Îți place acest modul?"
+
+#: includes/class-settings.php:125
+msgid "Support forum"
+msgstr "Forum pentru suport"
+
+#: includes/class-settings.php:125
+msgid "or talk about them in the"
+msgstr "sau vorbește despre ele în"
+
+#: includes/class-settings.php:125
+msgid "Documentation"
+msgstr "Documentație"
+
+#: includes/class-settings.php:125
+msgid "If you are having problems with this plugin, checkout plugin"
+msgstr "Dacă ai probleme cu acest modul, verifică modulul"
+
+#: includes/class-settings.php:124
+msgid "Need support?"
+msgstr "Ai nevoie de suport?"
+
+#. #-#-#-#-#  tmp-image-watermark.pot (Image Watermark 1.6.1)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: image-watermark.php:449 image-watermark.php:1044
+#: includes/class-settings.php:116 includes/class-settings.php:122
+msgid "Image Watermark"
+msgstr "Image Watermark"
+
+#: includes/class-settings.php:102
+msgid "Watermark"
+msgstr "Filigran"
+
+#: includes/class-settings.php:102
+msgid "Image Watermark Options"
+msgstr "Opțiuni Image Watermark"
+
+#: image-watermark.php:326 image-watermark.php:644 image-watermark.php:649
+msgid "Skipped files"
+msgstr "Fișiere omise"
+
+#: image-watermark.php:321 image-watermark.php:644
+msgid "Watermark was succesfully applied to 1 image."
+msgstr "Filigranul a fost aplicat cu succes pe o imagine."
+
+#: image-watermark.php:642 image-watermark.php:647
+msgid "Images skipped"
+msgstr "Imagini omise"
+
+#: image-watermark.php:320 image-watermark.php:642
+msgid "Watermark could not be applied to selected files or no valid images (JPEG, PNG) were selected."
+msgstr "Filigranul nu a putut fi aplicat pe fișierele selectate sau nu au fost selectate imagini valide (JPEG, PNG)."
+
+#: image-watermark.php:632
+msgid "<strong>Image Watermark:</strong> Bulk watermarking is available in list mode only, under <em>Bulk Actions</em> dropdown. <a href=\"%1$s\">Got to List Mode</a> or <a href=\"%2$s\">Hide this notice</a>"
+msgstr "<strong>Image Watermark:</strong> Filigranarea în masă este disponibilă numai în modul listă, sub meniul <em>Acțiuni în masă</em>. <a href=\"%1$s\">Mergi în modul listă</a> sau <a href=\"%2$s\">Ascunde acest mesaj</a>"
+
+#: image-watermark.php:297
+msgid "Are you sure you want to reset settings to defaults?"
+msgstr "Sigur vrei să restaurezi setările la valorile implicite?"
+
+#: image-watermark.php:288
+msgid "Add watermark"
+msgstr "Adaugă filigran"
+
+#: image-watermark.php:285
+msgid "This image is not supported as watermark. Use JPEG, PNG or GIF."
+msgstr "Această imagine nu este acceptată ca și filigran. Folosește JPEG, PNG sau GIF."
+
+#: image-watermark.php:284 includes/class-settings.php:507
+msgid "Watermak has not been selected yet."
+msgstr "Niciun filigran nu a fost ales încă."
+
+#: image-watermark.php:283 includes/class-settings.php:511
+msgid "Original size"
+msgstr "Dimensiune originală"
+
+#: image-watermark.php:282
+msgid "Select watermark"
+msgstr "Alege filigran"
+
+#: image-watermark.php:245 image-watermark.php:450
+msgid "Apply watermark"
+msgstr "Aplică filigran"

@@ -1,0 +1,558 @@
+
+---Downloaded files---
+The import files for: Bookforest were successfully downloaded!
+Initial max execution time = 180
+Files info:
+Site URL = https://www.bursadecontracte.ro
+Data file = /home/icontrac/public_html/wp-content/plugins/sb_framework/demo-data/bookforest/content.xml
+Widget file = /home/icontrac/public_html/wp-content/plugins/sb_framework/demo-data/bookforest/widgets.json
+Customizer file = /home/icontrac/public_html/wp-content/plugins/sb_framework/demo-data/bookforest/customizer.dat
+Redux files:
+adforest_theme -> /home/icontrac/public_html/wp-content/plugins/sb_framework/demo-data/bookforest/theme-options.json 
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+[ERROR] Failed to import "
+				1509532703462		" (Media)
+
+
+------
+New AJAX call!
+[ERROR] Failed to import "
+				1509532703462		" (Media)
+
+
+------
+New AJAX call!
+[ERROR] Failed to import "
+				1509532703462		" (Media)
+
+
+------
+New AJAX call!
+[ERROR] Failed to import "
+				1509532703462		" (Media)
+
+
+------
+New AJAX call!
+[ERROR] Failed to import "
+				1509532703462		" (Media)
+
+
+------
+New AJAX call!
+[ERROR] Failed to import "
+				1509532703462		" (Media)
+
+
+------
+New AJAX call!
+[ERROR] Failed to import "
+				1509532703462		" (Media)
+[ERROR] Failed to import "
+				eng-1		" (Media)
+[ERROR] Failed to import "
+				eng-2		" (Media)
+[ERROR] Failed to import "
+				eng-3		" (Media)
+[ERROR] Failed to import "
+				eng-5		" (Media)
+[ERROR] Failed to import "
+				eng-6		" (Media)
+[ERROR] Failed to import "
+				eng-7		" (Media)
+[ERROR] Failed to import "
+				eng-8		" (Media)
+[ERROR] Failed to import "
+				eng-9		" (Media)
+[ERROR] Failed to import "
+				eng-11		" (Media)
+
+
+------
+New AJAX call!
+[ERROR] Failed to import "
+				1509532703462		" (Media)
+[ERROR] Failed to import "
+				eng-1		" (Media)
+[ERROR] Failed to import "
+				eng-2		" (Media)
+[ERROR] Failed to import "
+				eng-3		" (Media)
+[ERROR] Failed to import "
+				eng-5		" (Media)
+[ERROR] Failed to import "
+				eng-6		" (Media)
+[ERROR] Failed to import "
+				eng-7		" (Media)
+[ERROR] Failed to import "
+				eng-8		" (Media)
+[ERROR] Failed to import "
+				eng-9		" (Media)
+[ERROR] Failed to import "
+				eng-11		" (Media)
+
+
+------
+New AJAX call!
+[ERROR] Failed to import "
+				1509532703462		" (Media)
+[ERROR] Failed to import "
+				eng-1		" (Media)
+[ERROR] Failed to import "
+				eng-2		" (Media)
+[ERROR] Failed to import "
+				eng-3		" (Media)
+[ERROR] Failed to import "
+				eng-5		" (Media)
+[ERROR] Failed to import "
+				eng-6		" (Media)
+[ERROR] Failed to import "
+				eng-7		" (Media)
+[ERROR] Failed to import "
+				eng-8		" (Media)
+[ERROR] Failed to import "
+				eng-9		" (Media)
+[ERROR] Failed to import "
+				eng-11		" (Media)
+
+
+------
+New AJAX call!
+[ERROR] Failed to import "
+				1509532703462		" (Media)
+[ERROR] Failed to import "
+				eng-1		" (Media)
+[ERROR] Failed to import "
+				eng-2		" (Media)
+[ERROR] Failed to import "
+				eng-3		" (Media)
+[ERROR] Failed to import "
+				eng-5		" (Media)
+[ERROR] Failed to import "
+				eng-6		" (Media)
+[ERROR] Failed to import "
+				eng-7		" (Media)
+[ERROR] Failed to import "
+				eng-8		" (Media)
+[ERROR] Failed to import "
+				eng-9		" (Media)
+[ERROR] Failed to import "
+				eng-11		" (Media)
+
+
+------
+New AJAX call!
+[ERROR] Failed to import "
+				1509532703462		" (Media)
+[ERROR] Failed to import "
+				eng-1		" (Media)
+[ERROR] Failed to import "
+				eng-2		" (Media)
+[ERROR] Failed to import "
+				eng-3		" (Media)
+[ERROR] Failed to import "
+				eng-5		" (Media)
+[ERROR] Failed to import "
+				eng-6		" (Media)
+[ERROR] Failed to import "
+				eng-7		" (Media)
+[ERROR] Failed to import "
+				eng-8		" (Media)
+[ERROR] Failed to import "
+				eng-9		" (Media)
+[ERROR] Failed to import "
+				eng-11		" (Media)
+
+
+------
+New AJAX call!
+[ERROR] Failed to import "
+				1509532703462		" (Media)
+[ERROR] Failed to import "
+				eng-1		" (Media)
+[ERROR] Failed to import "
+				eng-2		" (Media)
+[ERROR] Failed to import "
+				eng-3		" (Media)
+[ERROR] Failed to import "
+				eng-5		" (Media)
+[ERROR] Failed to import "
+				eng-6		" (Media)
+[ERROR] Failed to import "
+				eng-7		" (Media)
+[ERROR] Failed to import "
+				eng-8		" (Media)
+[ERROR] Failed to import "
+				eng-9		" (Media)
+[ERROR] Failed to import "
+				eng-11		" (Media)
+
+
+------
+New AJAX call!
+[ERROR] Failed to import "
+				1509532703462		" (Media)
+[ERROR] Failed to import "
+				eng-1		" (Media)
+[ERROR] Failed to import "
+				eng-2		" (Media)
+[ERROR] Failed to import "
+				eng-3		" (Media)
+[ERROR] Failed to import "
+				eng-5		" (Media)
+[ERROR] Failed to import "
+				eng-6		" (Media)
+[ERROR] Failed to import "
+				eng-7		" (Media)
+[ERROR] Failed to import "
+				eng-8		" (Media)
+[ERROR] Failed to import "
+				eng-9		" (Media)
+[ERROR] Failed to import "
+				eng-11		" (Media)
+
+
+------
+New AJAX call!
+[ERROR] Failed to import "
+				1509532703462		" (Media)
+[ERROR] Failed to import "
+				eng-1		" (Media)
+[ERROR] Failed to import "
+				eng-2		" (Media)
+[ERROR] Failed to import "
+				eng-3		" (Media)
+[ERROR] Failed to import "
+				eng-5		" (Media)
+[ERROR] Failed to import "
+				eng-6		" (Media)
+[ERROR] Failed to import "
+				eng-7		" (Media)
+[ERROR] Failed to import "
+				eng-8		" (Media)
+[ERROR] Failed to import "
+				eng-9		" (Media)
+[ERROR] Failed to import "
+				eng-11		" (Media)
+
+
+------
+New AJAX call!
+[ERROR] Failed to import "
+				1509532703462		" (Media)
+[ERROR] Failed to import "
+				eng-1		" (Media)
+[ERROR] Failed to import "
+				eng-2		" (Media)
+[ERROR] Failed to import "
+				eng-3		" (Media)
+[ERROR] Failed to import "
+				eng-5		" (Media)
+[ERROR] Failed to import "
+				eng-6		" (Media)
+[ERROR] Failed to import "
+				eng-7		" (Media)
+[ERROR] Failed to import "
+				eng-8		" (Media)
+[ERROR] Failed to import "
+				eng-9		" (Media)
+[ERROR] Failed to import "
+				eng-11		" (Media)
+
+
+------
+New AJAX call!
+[ERROR] Failed to import "
+				1509532703462		" (Media)
+[ERROR] Failed to import "
+				eng-1		" (Media)
+[ERROR] Failed to import "
+				eng-2		" (Media)
+[ERROR] Failed to import "
+				eng-3		" (Media)
+[ERROR] Failed to import "
+				eng-5		" (Media)
+[ERROR] Failed to import "
+				eng-6		" (Media)
+[ERROR] Failed to import "
+				eng-7		" (Media)
+[ERROR] Failed to import "
+				eng-8		" (Media)
+[ERROR] Failed to import "
+				eng-9		" (Media)
+[ERROR] Failed to import "
+				eng-11		" (Media)
+
+
+------
+New AJAX call!
+[ERROR] Failed to import "
+				1509532703462		" (Media)
+[ERROR] Failed to import "
+				eng-1		" (Media)
+[ERROR] Failed to import "
+				eng-2		" (Media)
+[ERROR] Failed to import "
+				eng-3		" (Media)
+[ERROR] Failed to import "
+				eng-5		" (Media)
+[ERROR] Failed to import "
+				eng-6		" (Media)
+[ERROR] Failed to import "
+				eng-7		" (Media)
+[ERROR] Failed to import "
+				eng-8		" (Media)
+[ERROR] Failed to import "
+				eng-9		" (Media)
+[ERROR] Failed to import "
+				eng-11		" (Media)
+
+
+------
+New AJAX call!
+[ERROR] Failed to import "
+				1509532703462		" (Media)
+[ERROR] Failed to import "
+				eng-1		" (Media)
+[ERROR] Failed to import "
+				eng-2		" (Media)
+[ERROR] Failed to import "
+				eng-3		" (Media)
+[ERROR] Failed to import "
+				eng-5		" (Media)
+[ERROR] Failed to import "
+				eng-6		" (Media)
+[ERROR] Failed to import "
+				eng-7		" (Media)
+[ERROR] Failed to import "
+				eng-8		" (Media)
+[ERROR] Failed to import "
+				eng-9		" (Media)
+[ERROR] Failed to import "
+				eng-11		" (Media)
+
+
+------
+New AJAX call!
+[ERROR] Failed to import "
+				1509532703462		" (Media)
+[ERROR] Failed to import "
+				eng-1		" (Media)
+[ERROR] Failed to import "
+				eng-2		" (Media)
+[ERROR] Failed to import "
+				eng-3		" (Media)
+[ERROR] Failed to import "
+				eng-5		" (Media)
+[ERROR] Failed to import "
+				eng-6		" (Media)
+[ERROR] Failed to import "
+				eng-7		" (Media)
+[ERROR] Failed to import "
+				eng-8		" (Media)
+[ERROR] Failed to import "
+				eng-9		" (Media)
+[ERROR] Failed to import "
+				eng-11		" (Media)
+
+
+------
+New AJAX call!
+[ERROR] Failed to import "
+				1509532703462		" (Media)
+[ERROR] Failed to import "
+				eng-1		" (Media)
+[ERROR] Failed to import "
+				eng-2		" (Media)
+[ERROR] Failed to import "
+				eng-3		" (Media)
+[ERROR] Failed to import "
+				eng-5		" (Media)
+[ERROR] Failed to import "
+				eng-6		" (Media)
+[ERROR] Failed to import "
+				eng-7		" (Media)
+[ERROR] Failed to import "
+				eng-8		" (Media)
+[ERROR] Failed to import "
+				eng-9		" (Media)
+[ERROR] Failed to import "
+				eng-11		" (Media)
+
+
+------
+New AJAX call!
+[ERROR] Failed to import "
+				1509532703462		" (Media)
+[ERROR] Failed to import "
+				eng-1		" (Media)
+[ERROR] Failed to import "
+				eng-2		" (Media)
+[ERROR] Failed to import "
+				eng-3		" (Media)
+[ERROR] Failed to import "
+				eng-5		" (Media)
+[ERROR] Failed to import "
+				eng-6		" (Media)
+[ERROR] Failed to import "
+				eng-7		" (Media)
+[ERROR] Failed to import "
+				eng-8		" (Media)
+[ERROR] Failed to import "
+				eng-9		" (Media)
+[ERROR] Failed to import "
+				eng-11		" (Media)
+
+
+------
+New AJAX call!
+[ERROR] Failed to import "
+				1509532703462		" (Media)
+[ERROR] Failed to import "
+				eng-1		" (Media)
+[ERROR] Failed to import "
+				eng-2		" (Media)
+[ERROR] Failed to import "
+				eng-3		" (Media)
+[ERROR] Failed to import "
+				eng-5		" (Media)
+[ERROR] Failed to import "
+				eng-6		" (Media)
+[ERROR] Failed to import "
+				eng-7		" (Media)
+[ERROR] Failed to import "
+				eng-8		" (Media)
+[ERROR] Failed to import "
+				eng-9		" (Media)
+[ERROR] Failed to import "
+				eng-11		" (Media)
+
+
+------
+New AJAX call!
+[ERROR] Failed to import "
+				1509532703462		" (Media)
+[ERROR] Failed to import "
+				eng-1		" (Media)
+[ERROR] Failed to import "
+				eng-2		" (Media)
+[ERROR] Failed to import "
+				eng-3		" (Media)
+[ERROR] Failed to import "
+				eng-5		" (Media)
+[ERROR] Failed to import "
+				eng-6		" (Media)
+[ERROR] Failed to import "
+				eng-7		" (Media)
+[ERROR] Failed to import "
+				eng-8		" (Media)
+[ERROR] Failed to import "
+				eng-9		" (Media)
+[ERROR] Failed to import "
+				eng-11		" (Media)
+
+
+------
+New AJAX call!
+[ERROR] Failed to import "
+				1509532703462		" (Media)
+[ERROR] Failed to import "
+				eng-1		" (Media)
+[ERROR] Failed to import "
+				eng-2		" (Media)
+[ERROR] Failed to import "
+				eng-3		" (Media)
+[ERROR] Failed to import "
+				eng-5		" (Media)
+[ERROR] Failed to import "
+				eng-6		" (Media)
+[ERROR] Failed to import "
+				eng-7		" (Media)
+[ERROR] Failed to import "
+				eng-8		" (Media)
+[ERROR] Failed to import "
+				eng-9		" (Media)
+[ERROR] Failed to import "
+				eng-11		" (Media)
+
+
+---Importing widgets---
+adforest Sidebar : 
+
+Caută - No Title - Widget already exists
+Articole recente - No Title - Widget already exists
+Comentarii recente - No Title - Widget already exists
+Arhive - No Title - Widget already exists
+Categorii - No Title - Widget already exists
+Meta - No Title - Widget already exists
+
+adforest Grid Sidebar : 
+
+Ads Recent - Recent Ads - Imported
+Ad Featured - Featured Ads - Imported
+Adforest Advertisement - Advertisement - Imported
+
+Ads Search : 
+
+Ad Search - Ad Title - Imported
+Simple or feature ad search - Simple or Featured - Imported
+Ad Categories - Categories - Imported
+Ad Type - Ad Type - Imported
+Ad Locations - Ad Locations - Imported
+Ad Featured - Featured Ads - Imported
+Ads Recent - Recent Ads - Imported
+Custom Fields Search - Search By: - Imported
+
+Single Ad Bottom : 
+
+Ad Featured - Featured Ads - Widget already exists
+Ads Recent - Recent Ads - Widget already exists
+
+AdForest Woo-Commerce Sidebar : 
+
+Product Search - Search Product - Imported
+Cart - Cart - Imported
+Products - Products - Imported
+Filter Products by Rating - Average rating - Imported
+
+
+
+---Importing Redux settings---
+Redux settings import for: adforest_theme finished successfully!
+
+---Importing customizer settings---
+Customizer settings import finished!
+
+---pt-ocdi/after_import---
+
