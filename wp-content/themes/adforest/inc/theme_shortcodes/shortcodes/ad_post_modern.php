@@ -104,6 +104,7 @@ function ad_post_short_base_func($atts, $content = '')
 	
 	$ad_price_type = '';
 	$is_feature_ad	= 0;
+	$is_sticky_ad	= 0;
 	
 	$ad_currency	=  '';
 	
@@ -141,6 +142,7 @@ function ad_post_short_base_func($atts, $content = '')
 			$ad_bidding	= get_post_meta($id, '_adforest_ad_bidding', true);
 			$ad_price_type	= get_post_meta($id, '_adforest_ad_price_type', true);
 			$is_feature_ad	= get_post_meta($id, '_adforest_is_feature', true);
+			$is_sticky_ad	= get_post_meta($id, '_adforest_is_sticky', true);
 			$ad_currency	= get_post_meta($id, '_adforest_ad_currency', true);
 			
 			
@@ -650,11 +652,13 @@ if( isset( $id ) && $id != "" )
 		}
 		
 	$simple_feature_html = '';
+	$simple_sticky_html = '';
 	if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) && isset($adforest_theme['allow_featured_on_ad'] ) && $adforest_theme['allow_featured_on_ad'] && $is_feature_ad == 0)
 	{
 		if( is_super_admin() || get_user_meta( get_current_user_id(), '_sb_featured_ads', true ) == '-1' || get_user_meta( get_current_user_id(), '_sb_featured_ads', true ) > 0 )
 		{
 			$count_featured_ads	= __('Featured ads remaining: Unlimited','adforest');
+			$count_sticky_ads	= __('Sticky ads remaining: Unlimited','adforest');
 
 				if(  get_user_meta( get_current_user_id(), '_sb_featured_ads', true ) > 0 )
 				{
@@ -679,12 +683,56 @@ if( isset( $id ) && $id != "" )
                                  </div>
                               </div>
                            </div>';
+				
 		}
 		else
 		{
 			$simple_feature_html = '<div role="alert" class="alert alert-info alert-dismissible '.adforest_alert_type().'">
 				<button aria-label="Close" data-dismiss="alert" class="close" type="button"></button>
 				'. __('If you want to make it feature then please have a look on','adforest') . ' 
+				<a href="'.get_the_permalink( $adforest_theme['sb_packages_page'] ) .'" class="sb_anchor" target="_blank">
+				'.__('Packages. ','adforest').'
+				</a></div>';
+					
+		}
+	}
+	if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) && isset($adforest_theme['allow_sticky_on_ad'] ) && $adforest_theme['allow_sticky_on_ad'] && $is_sticky_ad == 0)
+	{
+		if( is_super_admin() || get_user_meta( get_current_user_id(), '_sb_sticky_ads', true ) == '-1' || get_user_meta( get_current_user_id(), '_sb_sticky_ads', true ) > 0 )
+		{
+			$count_sticky_ads	= __('Sticky ads remaining: Unlimited','adforest');
+
+				
+				if(  get_user_meta( get_current_user_id(), '_sb_sticky_ads', true ) > 0 )
+				{
+					$count_sticky_ads	= __('Sticky ads remaining:','adforest') . get_user_meta( get_current_user_id(), '_sb_sticky_ads', true );
+				}
+				$sticky_text	=	'';
+				if( isset( $adforest_theme['sb_sticky_desc'] ) && $adforest_theme['sb_sticky_desc'] != "" )
+				{
+					$sticky_text = $adforest_theme['sb_sticky_desc'];
+				}
+				$simple_sticky_html = '<div class="select-package">
+                              	<div class="no-padding col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                                 <div class="pricing-list">
+                                    <div class="row">
+                                       <div class="col-md-12 col-sm-12 col-xs-12">
+                                          <h3>
+										  <input type="checkbox" name="sb_make_it_sticky" id="sb_make_it_sticky" />
+										  '.__('Make it sticky','adforest').'  <small>'.$count_sticky_ads.'</small></h3>
+                                          <p>'.$sticky_text.'</p>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>';
+		}
+		else
+		{
+			
+				$simple_sticky_html = '<div role="alert" class="alert alert-info alert-dismissible '.adforest_alert_type().'">
+				<button aria-label="Close" data-dismiss="alert" class="close" type="button"></button>
+				'. __('If you want to make it sticky then please have a look on','adforest') . ' 
 				<a href="'.get_the_permalink( $adforest_theme['sb_packages_page'] ) .'" class="sb_anchor" target="_blank">
 				'.__('Packages. ','adforest').'
                 </a></div>';	
@@ -695,6 +743,12 @@ if( isset( $id ) && $id != "" )
 			$simple_feature_html = '<div role="alert" class="alert alert-info alert-dismissible '.adforest_alert_type().'">
 				<button aria-label="Close" data-dismiss="alert" class="close" type="button"></button>
 				'. __('This ad is already featured.','adforest') . '</div>';	
+	}
+	if( $is_sticky_ad == 1 )
+	{
+			$simple_sticky_html = '<div role="alert" class="alert alert-info alert-dismissible '.adforest_alert_type().'">
+				<button aria-label="Close" data-dismiss="alert" class="close" type="button"></button>
+				'. __('This ad is already sticky.','adforest') . '</div>';	
 	}
 	
 return   ' 
@@ -810,6 +864,7 @@ return   '
 					'. $lat_lon_script .'
 					
 					'.$simple_feature_html.'
+					'.$simple_sticky_html.'
                 </div>
             </div>
         </div>

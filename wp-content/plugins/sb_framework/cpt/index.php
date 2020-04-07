@@ -286,6 +286,11 @@ function sb_render_meta_product($post) {
         <div><?php echo __('-1 means unlimited.', 'redux-framework');?></div>
     </div>
     <div>
+        <p><?php echo __('Sticky Ads', 'redux-framework');?></p>
+        <input type="text" name="package_sticky_ads" class="project_meta" placeholder="<?php echo esc_attr__('Must be an inter value.', 'redux-framework');?>" size="30" value="<?php echo esc_attr(get_post_meta($post->ID, "package_sticky_ads", true));?>" id="package_sticky_ads" spellcheck="true" autocomplete="off">
+        <div><?php echo __('-1 means unlimited.', 'redux-framework');?></div>
+    </div>
+    <div>
         <p><?php echo __('Bump Ads', 'redux-framework');?></p>
         <input type="text" name="package_bump_ads" class="project_meta" placeholder="<?php echo esc_attr__('Must be an inter value.', 'redux-framework');?>" size="30" value="<?php echo esc_attr(get_post_meta($post->ID, "package_bump_ads", true));?>" id="package_bump_ads" spellcheck="true" autocomplete="off">
     </div>
@@ -388,6 +393,8 @@ function sb_themes_meta_save_product($post_id, $post, $update) {
         update_post_meta($post_id, 'package_free_ads', $_POST['package_free_ads']);
     if (isset($_POST['package_featured_ads']))
         update_post_meta($post_id, 'package_featured_ads', $_POST['package_featured_ads']);
+    if (isset($_POST['package_sticky_ads']))
+        update_post_meta($post_id, 'package_sticky_ads', $_POST['package_sticky_ads']);
     if (isset($_POST['package_bump_ads']))
         update_post_meta($post_id, 'package_bump_ads', $_POST['package_bump_ads']);
     if (isset($_POST['package_video_links']))

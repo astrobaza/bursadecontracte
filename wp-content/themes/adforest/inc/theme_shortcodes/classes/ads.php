@@ -30,6 +30,12 @@ if (!class_exists('ads')) {
                 $flip_it = 'flip';
                 $ribbion = 'featured-ribbon-rtl';
             }
+            $ribbion2 = 'sticky-ribbon';
+            if (is_rtl()) {
+                $flip_it = 'flip';
+                $ribbion2 = 'sticky-ribbon-rtl';
+            }
+
             $args = apply_filters('adforest_wpml_show_all_posts', $args);
             $args = apply_filters('adforest_site_location_ads', $args, 'ads');
             $ads = new WP_Query($args);
@@ -48,7 +54,7 @@ if (!class_exists('ads')) {
                     }
                     $cats_html = adforest_display_cats($pid);
                     $messages = '';
-                    if ($fav_ads == 'no' || 'expired_sold' == $fav_ads || $fav_ads == 'featured_ads') {
+                    if ($fav_ads == 'no' || 'expired_sold' == $fav_ads || $fav_ads == 'featured_ads' || $fav_ads == 'sticky_ads') {
                         if ($adforest_theme['communication_mode'] == 'both' || $adforest_theme['communication_mode'] == 'message') {
 
 
@@ -61,16 +67,23 @@ if (!class_exists('ads')) {
 
 
                     $add_ons = '';
-                    if ($fav_ads == 'no' || 'expired_sold' == $fav_ads || $fav_ads == 'featured_ads') {
+                    if ($fav_ads == 'no' || 'expired_sold' == $fav_ads || $fav_ads == 'featured_ads' || $fav_ads == 'sticky_ads' ) {
                         $ad_featured = '<a class="btn btn-sm btn-info" href="javascript:void(0);">' . __('Featured', 'adforest') . '</a>';
+                        $ad_sticky = '<a class="btn btn-sm btn-info" href="javascript:void(0);">' . __('Sticky', 'adforest') . '</a>';
                         if (get_post_meta($pid, '_adforest_is_feature', true) != '1') {
                             $ad_featured = '<a class="btn btn-sm btn-info sb_anchor sb_make_feature_ad" href="javascript:void(0);" data-btn-ok-label="' . __('Yes', 'adforest') . '" data-btn-cancel-label="' . __('No', 'adforest') . '" data-toggle="confirmation" data-singleton="true" data-title="' . __('Are you sure?', 'adforest') . '" data-content="" data-aaa-id="' . esc_attr($pid) . '">' . __('Mark featured', 'adforest') . '</a>';
                         }
+                        if (get_post_meta($pid, '_adforest_is_sticky', true) != '1') {
+                            $ad_sticky = '<a class="btn btn-sm btn-info sb_anchor sb_make_sticky_ad" href="javascript:void(0);" data-btn-ok-label="' . __('Yes', 'adforest') . '" data-btn-cancel-label="' . __('No', 'adforest') . '" data-toggle="confirmation" data-singleton="true" data-title="' . __('Are you sure?', 'adforest') . '" data-content="" data-aaa-id="' . esc_attr($pid) . '">' . __('Mark sticky', 'adforest') . '</a>';
+                        }
 
                         $add_ons = '<div class="bump-or-feature">
-								' . $ad_featured . '
+                                ' . $ad_featured . '
+                                ' . $ad_sticky . '
 			<a class="btn btn-sm btn-blue bump_it_up" href="javascript:void(0);" data-btn-ok-label="' . __('Yes', 'adforest') . '" data-btn-cancel-label="' . __('No', 'adforest') . '" data-toggle="confirmation" data-singleton="true" data-title="' . __('Are you sure?', 'adforest') . '" data-content="" data-aaa-id="' . esc_attr($pid) . '">' . __('Bump up', 'adforest') . '</a>
-			</div>';
+            </div>';
+            
+
                     }
 
                     $timer_html = '';
@@ -103,7 +116,7 @@ if (!class_exists('ads')) {
 					<img src="' . adforest_get_ad_default_image_url('adforest-ad-related') . '" alt="' . get_the_title() . '" class="img-responsive">'.$timer_html.'</div>';
                     }
 
-                    if ($fav_ads == 'no' || 'expired_sold' == $fav_ads || $fav_ads == 'featured_ads') {
+                    if ($fav_ads == 'no' || 'expired_sold' == $fav_ads || $fav_ads == 'featured_ads' || $fav_ads == 'sticky_ads') {
 
                         $ad_status = '<select class="ad_status category form-control"  adid="' . get_the_ID() . '"><option value="">' . __('Post Status', 'adforest') . '</option>';
                         if (get_post_meta(get_the_ID(), '_adforest_ad_status_', true) == 'expired') {
@@ -254,6 +267,11 @@ if (!class_exists('ads')) {
                 $flip_it = 'flip';
                 $ribbion = 'featured-ribbon-rtl';
             }
+            $ribbion2 = 'sticky-ribbon';
+            if (is_rtl()) {
+                $flip_it = 'flip';
+                $ribbion2 = 'sticky-ribbon-rtl';
+            }
             $args = apply_filters('adforest_wpml_show_all_posts', $args);
             $args = apply_filters('adforest_site_location_ads', $args, 'ads');
             $ads = new WP_Query($args);
@@ -403,6 +421,11 @@ if (!class_exists('ads')) {
             if (is_rtl()) {
                 $flip_it = 'flip';
                 $ribbion = 'featured-ribbon-rtl';
+            }
+            $ribbion2 = 'sticky-ribbon';
+            if (is_rtl()) {
+                $flip_it = 'flip';
+                $ribbion2 = 'sticky-ribbon-rtl';
             }
             $args = apply_filters('adforest_wpml_show_all_posts', $args);
             $args = apply_filters('adforest_site_location_ads', $args, 'ads');
@@ -729,6 +752,179 @@ if (!class_exists('ads')) {
 	<input type="hidden" id="max_pages" value="' . $ads->max_num_pages . '" />';
         }
 
+        function adforest_get_sticky_ads_grid($args, $paged, $show_pagination = 0, $fav_ads) {
+            $my_ads = '';
+            global $adforest_theme;
+
+            $colors = array('active' => 'status_active', 'expired' => 'status_expired', 'sold' => 'status_sold');
+
+            $flip_it = '';
+            $ribbion2 = 'sticky-ribbon';
+            if (is_rtl()) {
+                $flip_it = 'flip';
+                $ribbion2 = 'sticky-ribbon-rtl';
+            }
+
+            $args = apply_filters('adforest_wpml_show_all_posts', $args);
+            $args = apply_filters('adforest_site_location_ads', $args, 'ads');
+            $ads = new WP_Query($args);
+            if ($ads->have_posts()) {
+                $number = 0;
+                while ($ads->have_posts()) {
+                    $ads->the_post();
+
+                    $pid = get_the_ID();
+
+                    adforest_display_cats($pid);
+                    $messages = '';
+                    if ($fav_ads == 'no') {
+                        if ($adforest_theme['communication_mode'] == 'both' || $adforest_theme['communication_mode'] == 'message') {
+
+                            $messages = '<div class="notification msgs get_msgs" ad_msg=' . $pid . '>
+                                    <a class="round-btn" href="javascript:void(0);"><i class="fa fa-envelope-o"></i></a>
+                                    <span>' . $this->adforest_count_ad_messages($pid) . '</span>
+                     </div>';
+                        }
+                    }
+
+                    $timer_html = '';
+                    $bid_end_date = get_post_meta($pid, '_adforest_ad_bidding_date', true);
+                    if ($bid_end_date != "" && date('Y-m-d H:i:s') < $bid_end_date) {
+                        $timer_html .= '<div class="listing-bidding">' . adforest_timer_html($bid_end_date, false) . '</div>';
+                    }
+                    $outer_html = '';
+                    $media = adforest_get_ad_images($pid);
+                    if (count($media) > 0) {
+                        $counting = 1;
+                        foreach ($media as $m) {
+                            if ($counting > 1)
+                                break;
+
+                            $mid = '';
+                            if (isset($m->ID))
+                                $mid = $m->ID;
+                            else
+                                $mid = $m;
+                            $image = wp_get_attachment_image_src($mid, 'adforest-ad-related');
+
+                            $outer_html = '<div class="image">
+				' . $timer_html . '
+				<img src="' . $image[0] . '" alt="' . get_the_title() . '" class="img-responsive"></div>';
+                            $counting++;
+                        }
+                    }
+                    else {
+                        $outer_html = '<div class="image">
+			' . $timer_html . '
+					<img src="' . adforest_get_ad_default_image_url('adforest-ad-related') . '" alt="' . get_the_title() . '" class="img-responsive">
+					</div>';
+                    }
+                    if ($fav_ads == 'no') {
+                        $edit = '<li>
+								   <a data-toggle="tooltip" data-placement="top" title="' . __('Edit this Ad', 'adforest') . '" data-original-title="' . __('Edit this Ad', 'adforest') . '" href="' . get_the_permalink($sb_post_ad_page) . '?id=' . get_the_ID() . '"><i class="fa fa-pencil edit"></i></a> 
+								   </li>';
+                        $delete = '<li>
+								   <a  href="javascript:void(0);" data-adid="' . get_the_ID() . '" class="remove_ad" data-btn-ok-label="' . __('Yes', 'adforest') . '" data-btn-cancel-label="' . __('No', 'adforest') . '" data-toggle="confirmation" data-singleton="true" data-title="' . __('Are you sure?', 'adforest') . '" data-content=""  >
+								   <i class="fa fa-times delete"></i>
+								   </a>
+				
+				
+								   </li>';
+                    }
+
+                    $is_sticky = '';
+                    if (get_post_meta($pid, '_adforest_is_sticky', true) == '1') {
+                        $is_sticky = '<div class="' . esc_attr($ribbion) . '">
+			  <span>' . __('Sticky', 'adforest') . '</span>
+		   </div>';
+                    }
+
+
+                    $my_ads .= '<div class="col-md-4 col-lg-4 col-sm-6 col-xs-12" id="holder-' . get_the_ID() . '">
+						  <div class="white category-grid-box-1 ">
+						  ' . adforest_video_icon() . '
+							 <!-- Image Box -->
+							 ' . $is_sticky . '
+									 ' . $outer_html . '
+							 <!-- Short Description -->
+							 <div class="short-description-1 ">
+							 ' . $messages . '
+								<!-- Category Title -->
+								<div class="category-title"> ' . $cats_html . ' </div>
+								<!-- Ad Title -->
+								<h2>
+								   <a title="javascript:void(0);" href="' . get_the_permalink() . '">' . get_the_title() . '</a>
+								</h2>
+								<!-- Location -->
+								<p class="location"><i class="fa fa-map-marker"></i> ' . get_post_meta(get_the_ID(), '_adforest_ad_location', true) . '</p>
+								<div class="rating">
+                                       <span class="rating-count">
+									   ' . $ad_status . '
+									   </span>
+                                      
+                                    </div>
+
+								 <!-- Price -->
+								 
+								 <span class="ad-price">' . adforest_adPrice(get_the_ID()) . '</span> 
+							 </div>
+							 <!-- Ad Meta Stats -->
+							 <div class="ad-info-1">
+								<ul class="pull-left ' . esc_attr($flip_it) . '">
+								   <li> <i class="fa fa-eye"></i><a href="javascript:void(0);">' . adforest_getPostViews(get_the_ID()) . ' ' . __('Views', 'adforest') . '</a> </li>
+								   <li> <i class="fa fa-clock-o"></i>' . get_the_date(get_option('date_format'), get_the_ID()) . '</li>
+								</ul>
+								<ul class="pull-right ' . esc_attr($flip_it) . '">
+								   ' . $delete . '
+								   ' . $edit . '
+								   ' . $remove . '
+								</ul>
+							 </div>
+						  </div>
+					   </div>';
+                }
+                wp_reset_postdata();
+            } else {
+                $my_ads = get_template_part('template-parts/content', 'none');
+            }
+            $load_more = '';
+            if ($show_pagination == 1) {
+                $load_more = $this->adforest_get_pages($paged, $ads->max_num_pages, $fav_ads);
+            }
+
+            return '<div class="row">
+          <!-- Middle Content Area -->
+          <div class="col-md-12 col-sm-12 col-xs-12">
+             <!-- Row -->
+             <div class="row">
+                <!-- Sorting Filters -->
+                <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+                   <!-- Sorting Filters Breadcrumb -->
+                   <!-- Sorting Filters Breadcrumb End -->
+                </div>
+                <!-- Sorting Filters End-->
+                <div class="clearfix"></div>
+                <!-- Ads Archive 5 -->
+                <div class="posts-masonry">
+					' . $my_ads . '                   
+                </div>
+                <!-- Ads Archive End -->  
+                <div class="clearfix"></div>
+                <!-- Pagination -->  
+                <div class="col-md-12 col-xs-12 col-sm-12">
+                   ' . $load_more . '
+                </div>
+                <!-- Pagination End -->   
+             </div>
+             <!-- Row End -->
+          </div>
+          <!-- Middle Content Area  End -->
+       </div>
+       <!-- Row End -->
+	<input type="hidden" id="max_pages" value="' . $ads->max_num_pages . '" />';
+        }
+        //Stop sticky
+
         function adforest_get_ads_grid_slider($args, $title, $col = 12, $css_class = '') {
 
             $my_ads = '';
@@ -740,6 +936,14 @@ if (!class_exists('ads')) {
                 $flip_it = 'flip';
                 $ribbion = 'featured-ribbon-rtl';
             }
+
+            $flip_it = '';
+            $ribbion2 = 'sticky-ribbon';
+            if (is_rtl()) {
+                $flip_it = 'flip';
+                $ribbion2 = 'sticky-ribbon-rtl';
+            }
+
             $args = apply_filters('adforest_wpml_show_all_posts', $args);
             $args = apply_filters('adforest_site_location_ads', $args, 'ads');
 
@@ -750,6 +954,9 @@ if (!class_exists('ads')) {
                 $grid_type = 'grid_1';
                 if (isset($adforest_theme['featured_ad_slider_layout']) && $adforest_theme['featured_ad_slider_layout'] != "") {
                     $grid_type = $adforest_theme['featured_ad_slider_layout'];
+                }
+                if (isset($adforest_theme['sticky_ad_slider_layout']) && $adforest_theme['sticky_ad_slider_layout'] != "") {
+                    $grid_type = $adforest_theme['sticky_ad_slider_layout'];
                 }
 
                 while ($ads->have_posts()) {
@@ -801,6 +1008,11 @@ if (!class_exists('ads')) {
                     if (get_post_meta($pid, '_adforest_is_feature', true) == '1') {
                         $is_feature = '<div class="' . esc_attr($ribbion) . '"><span>' . __('Featured', 'adforest') . '</span></div>';
                     }
+                    $is_sticky = '';
+                    if (get_post_meta($pid, '_adforest_is_sticky', true) == '1') {
+                        $is_sticky = '<div class="' . esc_attr($ribbion) . '"><span>' . __('sticky', 'adforest') . '</span></div>';
+                    }
+
                     $save_ad = '';
                     if (isset($adforest_theme['design_type']) && $adforest_theme['design_type'] == 'modern') {
                         
@@ -823,6 +1035,7 @@ if (!class_exists('ads')) {
 						  <div class="white category-grid-box-1 ">
 						  ' . adforest_video_icon() . '
 							 <!-- Image Box -->
+                             ' . $is_sticky . '
 							 		' . $is_feature . '
 									 ' . $outer_html . '
 							 <!-- Short Description -->
@@ -1621,6 +1834,13 @@ if (!class_exists('ads')) {
                 $ribbion = 'featured-ribbon-rtl';
             }
 
+            $flip_it = '';
+            $ribbion2 = 'sticky-ribbon';
+            if (is_rtl()) {
+                $flip_it = 'flip';
+                $ribbion2 = 'sticky-ribbon-rtl';
+            }
+
 
             $outer_html = '';
             $media = adforest_get_ad_images($pid);
@@ -1666,7 +1886,14 @@ if (!class_exists('ads')) {
             if (get_post_meta(get_the_ID(), '_adforest_is_feature', true) == '1') {
                 $is_feature = '<div class="' . esc_attr($ribbion) . '">
 			  <span>' . __('Featured', 'adforest') . '</span>
-		   </div>';
+           </div>';
+            }
+            $is_sticky = '';
+            if (get_post_meta(get_the_ID(), '_adforest_is_feature', true) == '1') {
+                $is_sticky = '<div class="' . esc_attr($ribbion) . '">
+			  <span>' . __('Sticky', 'adforest') . '</span>
+           </div>';
+           
             }
 
             $ad_title = get_the_title();
@@ -1686,8 +1913,9 @@ if (!class_exists('ads')) {
             $my_ads .= '<div class="white category-grid-box-1 ">
 						  ' . adforest_video_icon() . '
 							 <!-- Image Box -->
+							 ' . $is_sticky . '
 							 ' . $is_feature . '
-									 ' . $outer_html . '
+							' . $outer_html . '
 							 <!-- Short Description -->
 							 <div class="short-description-1 ">
 								<!-- Category Title -->
@@ -1745,6 +1973,11 @@ if (!class_exists('ads')) {
                 $is_feature = '<span class="ad-status">' . __('Featured', 'adforest') . '</span>';
             }
 
+            $is_sticky = '';
+            if (get_post_meta(get_the_ID(), '_adforest_is_sticky', true) == '1') {
+                $is_sticky = '<span class="ad-status">' . __('sticky', 'adforest') . '</span>';
+            }
+
             $pid = get_the_ID();
             $author_id = get_post_field('post_author', $pid);
             ;
@@ -1782,6 +2015,7 @@ if (!class_exists('ads')) {
 					 ' . $timer_html . '
 						' . $img . '
 						<!-- Ad Status -->
+						' . $is_sticky . '
 						' . $is_feature . '
 						<!-- User Review -->
 						<div class="user-preview">
@@ -1841,6 +2075,11 @@ if (!class_exists('ads')) {
                 $ribbion = 'featured-ribbon-rtl';
             }
 
+            $ribbion2 = 'sticky-ribbon';
+            if (is_rtl()) {
+                $ribbion2 = 'sticky-ribbon-rtl';
+            }
+
             $img = '';
             $media = adforest_get_ad_images($pid);
             if (count($media) > 0) {
@@ -1867,6 +2106,13 @@ if (!class_exists('ads')) {
 		   </div>';
             }
 
+            $is_sticky = '';
+            if (get_post_meta(get_the_ID(), '_adforest_is_sticky', true) == '1') {
+                $is_sticky = '<div class="' . esc_attr($ribbion) . '">
+			  <span>' . __('sticky', 'adforest') . '</span>
+		   </div>';
+            }
+
             $pid = get_the_ID();
             $author_id = get_post_field('post_author', $pid);
             ;
@@ -1887,6 +2133,7 @@ if (!class_exists('ads')) {
             }
 
             $my_ads .= '<div class="category-grid-box-1">
+            ' . $is_sticky . '
 							  ' . $is_feature . '
 							  ' . adforest_video_icon() . '
                                  <div class="image">
@@ -1937,6 +2184,11 @@ if (!class_exists('ads')) {
                 $ribbion = 'featured-ribbon-rtl';
             }
 
+            $ribbion2 = 'sticky-ribbon';
+            if (is_rtl()) {
+                $ribbion = 'sticky-ribbon-rtl';
+            }
+
             $img = '';
             $media = adforest_get_ad_images($pid);
             if (count($media) > 0) {
@@ -1960,6 +2212,13 @@ if (!class_exists('ads')) {
             if (get_post_meta(get_the_ID(), '_adforest_is_feature', true) == '1') {
                 $is_feature = '<div class="' . esc_attr($ribbion) . '">
 			  <span>' . __('Featured', 'adforest') . '</span>
+		   </div>';
+            }
+
+            $is_sticky = '';
+            if (get_post_meta(get_the_ID(), '_adforest_is_sticky', true) == '1') {
+                $is_sticky = '<div class="' . esc_attr($ribbion) . '">
+			  <span>' . __('sticky', 'adforest') . '</span>
 		   </div>';
             }
 
@@ -1987,6 +2246,7 @@ if (!class_exists('ads')) {
                                 <div class="image-area">
                                         ' . adforest_video_icon() . '
                                         ' . $timer_html . '
+                                        ' . $is_sticky . '
                                         ' . $is_feature . '
                                     <div class="photo-count-flag">' . count($media) . ' <i class="fa fa-camera"></i></div>
                                     <a href="' . get_the_permalink() . '">' . $img . '</a>
@@ -2020,6 +2280,10 @@ if (!class_exists('ads')) {
             if (is_rtl()) {
                 $ribbion = 'featured-ribbon-rtl';
             }
+            $ribbion2 = 'sticky-ribbon';
+            if (is_rtl()) {
+                $ribbion2 = 'sticky-ribbon-rtl';
+            }
 
             $img = '';
             $media = adforest_get_ad_images($pid);
@@ -2046,6 +2310,13 @@ if (!class_exists('ads')) {
 		   </div>';
             }
 
+            $is_sticky = '';
+            if (get_post_meta(get_the_ID(), '_adforest_is_sticky', true) == '1') {
+                $is_sticky = '<div class="' . esc_attr($ribbion) . '">
+			  <span>' . __('sticky', 'adforest') . '</span>
+		   </div>';
+            }
+
             $pid = get_the_ID();
             $author_id = get_post_field('post_author', $pid);
 
@@ -2069,6 +2340,7 @@ if (!class_exists('ads')) {
 
             $my_ads .= '<div class="new-small-grid">
                                     ' . adforest_video_icon() . '
+                                    ' . $is_sticky . '
                                     ' . $is_feature . '
 				 <a href="' . get_the_permalink() . '">
 				  <figure class="new-small-grid-img">
@@ -2097,6 +2369,10 @@ if (!class_exists('ads')) {
             if (is_rtl()) {
                 $ribbion = 'featured-ribbon-rtl';
             }
+            $ribbion2 = 'sticky-ribbon';
+            if (is_rtl()) {
+                $ribbion2 = 'sticky-ribbon-rtl';
+            }
 
             $img = '';
             $media = adforest_get_ad_images($pid);
@@ -2120,6 +2396,13 @@ if (!class_exists('ads')) {
             if (get_post_meta(get_the_ID(), '_adforest_is_feature', true) == '1') {
                 $is_feature = '<div class="' . esc_attr($ribbion) . '">
 			  <span>' . __('Featured', 'adforest') . '</span>
+		   </div>';
+            }
+
+            $is_sticky = '';
+            if (get_post_meta(get_the_ID(), '_adforest_is_sticky', true) == '1') {
+                $is_sticky = '<div class="' . esc_attr($ribbion) . '">
+			  <span>' . __('sticky', 'adforest') . '</span>
 		   </div>';
             }
 
@@ -2155,6 +2438,7 @@ if (!class_exists('ads')) {
                 </div>
 			 
               <div class="feature-shops">
+			  ' . $is_sticky . '
 			  ' . $is_feature . '
 			  <a href="' . get_the_permalink() . '">
 			  ' . $img . '
@@ -2204,6 +2488,17 @@ if (!class_exists('ads')) {
             if (get_post_meta(get_the_ID(), '_adforest_is_feature', true) == '1') {
                 $is_feature = '<div class="' . esc_attr($ribbion) . '">
 			  <span>' . __('Featured', 'adforest') . '</span>
+		   </div>';
+            }
+            $ribbion2 = 'sticky-ribbon';
+            if (is_rtl()) {
+                $ribbion2 = 'sticky-ribbon-rtl';
+            }
+
+            $is_sticky = '';
+            if (get_post_meta(get_the_ID(), '_adforest_is_sticky', true) == '1') {
+                $is_sticky = '<div class="' . esc_attr($ribbion) . '">
+			  <span>' . __('sticky', 'adforest') . '</span>
 		   </div>';
             }
 
@@ -2258,6 +2553,7 @@ if (!class_exists('ads')) {
             $my_ads .= '<div class="browse-feature-details">
             <div class="browse-featured-list">
               <div class="browse-featured-images">
+			  ' . $is_sticky . '
 			  ' . $is_feature . '
 				<a href="' . get_the_permalink() . '">
 				' . $img . '
@@ -2354,6 +2650,17 @@ if (!class_exists('ads')) {
 			  <span>' . __('Featured', 'adforest') . '</span>
 		   </div>';
             }
+            $ribbion2 = 'sticky-ribbon';
+            if (is_rtl()) {
+                $ribbion2 = 'sticky-ribbon-rtl';
+            }
+
+            $is_sticky = '';
+            if (get_post_meta(get_the_ID(), '_adforest_is_sticky', true) == '1') {
+                $is_sticky = '<div class="' . esc_attr($ribbion) . '">
+			  <span>' . __('sticky', 'adforest') . '</span>
+		   </div>';
+            }
 
             // time code
             $timer_html = '';
@@ -2368,7 +2675,7 @@ if (!class_exists('ads')) {
                 $html .= '<div class="col-lg-' . esc_attr($col) . ' col-xs-12 col-md-' . esc_attr($col) . ' col-sm-6">';
             }
             $html .= ' <div class="prop-newest-main-section">
-                                            <div class="prop-newest-image">  ' . $timer_html . $is_feature . ($img) . '
+                                            <div class="prop-newest-image">  ' . $timer_html . $is_feature .  $is_sticky .($img) . '
                                                
                                                 <div class="prop-estate-links"> <a href="' . adforest_set_url_param(get_author_posts_url($author_id), 'type', 'ads') . '"> <img src="' . adforest_get_user_dp($author_id) . '" alt="' . get_the_title() . '" class="avatar avatar-small img-responsive"></a> </div>
                                                 <div class="prop-estate-icons"> <a href="javascript:void(0);" id="ad_to_fav" data-adid="' . esc_attr(get_the_ID()) . '"><i class="fa fa-heart"></i></a> </div>
@@ -2450,6 +2757,14 @@ if (!class_exists('ads')) {
                                     <span>' . __('Featured', 'adforest') . '</span>
                                 </div>';
             }
+            $is_sticky= '';
+            if (get_post_meta(get_the_ID(), '_adforest_is_sticky', true) == '1') {
+
+                $is_sticky = '<div class="dec-sticky-icons">
+                                    <i class="fa fa-star"></i>
+                                    <span>' . __('sticky', 'adforest') . '</span>
+                                </div>';
+            }
 
             // time code
             $timer_html = '';
@@ -2476,6 +2791,7 @@ if (!class_exists('ads')) {
                           ' . $img . ' 
                             ' . $timer_html . '   
                               <div class="img-options-wrap">
+                              ' . $is_sticky . '
                             ' . $is_feature . '
                            <div class="dec-featured-cam">
                            <i class="fa fa-camera"></i>
@@ -2559,6 +2875,12 @@ if (!class_exists('ads')) {
 
                 $is_feature = '<div class="' . $ribbion . '"> <span>' . __('Featured', 'adforest') . '</span></div>';
             }
+
+            $is_sticky = '';
+            if (get_post_meta(get_the_ID(), '_adforest_is_sticky', true) == '1') {
+
+                $is_sticky = '<div class="' . $ribbion . '"> <span>' . __('sticky', 'adforest') . '</span></div>';
+            }
             // time code
 
 
@@ -2589,7 +2911,7 @@ if (!class_exists('ads')) {
             $img_count = count($media) > 0 ? count($media) : 0;
             $html .= '<div class="col-lg-' . esc_attr($col) . ' col-xs-12 col-md-' . esc_attr($col) . ' col-sm-12">';
             $html .= '<div class="ads-grid-container">
-                                <div class="ads-grid-style"> <div class="featured-ribbon">  ' . $is_feature . ' </div> ' . adforest_video_icon() . '  ' . $img . ' 
+                                <div class="ads-grid-style"> <div class="featured-ribbon">  ' . $is_sticky . '' . $is_feature . ' </div> ' . adforest_video_icon() . '  ' . $img . ' 
                                    ' . $timer_html . '
                                 </div>
                                 <div class="ads-grid-content">
@@ -2689,6 +3011,16 @@ if (!class_exists('ads')) {
 			  <span>' . __('Featured', 'adforest') . '</span>
 		   </div>';
             }
+            $is_sticky = '';
+            if (get_post_meta(get_the_ID(), '_adforest_is_sticky', true) == '1') {
+                $rtl_fet = 'featured-ribbon';
+                if (is_rtl()) {
+                    $rtl_fet = 'featured-ribbon-rtl';
+                }
+                $is_sticky = '<div class="' . esc_attr($rtl_fet) . '">
+			  <span>' . __('sticky', 'adforest') . '</span>
+		   </div>';
+            }
 
             $poster_contact = '';
             if (get_post_meta(get_the_ID(), '_adforest_poster_contact', true) != "" && ( $adforest_theme['communication_mode'] == 'both' || $adforest_theme['communication_mode'] == 'phone' )) {
@@ -2730,6 +3062,7 @@ if (!class_exists('ads')) {
             }
             $output .= '<div class="img-box">
 	' . adforest_video_icon() . '
+    ' . $is_sticky . '
             ' . $is_feature . '
                 <img src="' . esc_url($img) . '" class="img-responsive" alt="' . get_the_title() . '">
                 <div class="total-images">
@@ -2862,6 +3195,16 @@ if (!class_exists('ads')) {
 			  <span>' . __('Featured', 'adforest') . '</span>
 		   </div>';
             }
+            $is_sticky = '';
+            if (get_post_meta(get_the_ID(), '_adforest_is_sticky', true) == '1') {
+                $rtl_fet = 'featured-ribbon';
+                if (is_rtl()) {
+                    $rtl_fet = 'featured-ribbon-rtl';
+                }
+                $is_sticky = '<div class="' . esc_attr($rtl_fet) . '">
+			  <span>' . __('sticky', 'adforest') . '</span>
+		   </div>';
+            }
 
             $pid = get_the_ID();
             $author_id = get_post_field('post_author', $pid);
@@ -2922,6 +3265,7 @@ if (!class_exists('ads')) {
                </div>
                <!-- Short Description -->
                <div class="short-description-1 clearfix">
+			   ' . $is_sticky . '
 			   ' . $is_feature . '
                   <!-- Category Title -->
                   <div class="category-title">' . $cats_html . '</div>
@@ -2993,6 +3337,18 @@ if (!class_exists('ads')) {
 
                 $is_feature = '<div class="' . esc_attr($rtl_fet) . '">
 			  <span>' . __('Featured', 'adforest') . '</span>
+		   </div>';
+            }
+            $is_sticky = '';
+            if (get_post_meta(get_the_ID(), '_adforest_is_sticky', true) == '1') {
+                $rtl_fet = 'featured-ribbon';
+                if (is_rtl()) {
+                    $rtl_fet = 'featured-ribbon-rtl';
+                }
+
+
+                $is_sticky = '<div class="' . esc_attr($rtl_fet) . '">
+			  <span>' . __('sticky', 'adforest') . '</span>
 		   </div>';
             }
 
@@ -3100,6 +3456,7 @@ if (!class_exists('ads')) {
                                        <a href="' . get_the_permalink() . '">
                                           ' . $img . '
 										  ' . $is_feature . '
+										  ' . $is_feature . '
                                        </a>
                                     </div>
                                     <!-- Img Block -->
@@ -3173,6 +3530,17 @@ if (!class_exists('ads')) {
 		   </div>';
             }
 
+            $is_sticky = '';
+            if (get_post_meta(get_the_ID(), '_adforest_is_sticky', true) == '1') {
+                $ribbion = 'featured-ribbon';
+                if (is_rtl()) {
+                    $ribbion = 'featured-ribbon-rtl';
+                }
+                $is_sticky = '<div class="' . esc_attr($ribbion) . '">
+			  <span>' . __('sticky', 'adforest') . '</span>
+		   </div>';
+            }
+
             $pid = get_the_ID();
             $author_id = get_post_field('post_author', $pid);
             ;
@@ -3224,6 +3592,7 @@ if (!class_exists('ads')) {
                                  <div class="content-zone">
 								 
                                     <div class="col-md-4 col-sm-4 col-xs-12">
+									' . $is_sticky . '
 									' . $is_feature . '
                                        <div class="img-zone">
 									   ' . $modern_feature . '
@@ -3267,4 +3636,3 @@ if (!class_exists('ads')) {
     }
 
 }
-?>

@@ -297,6 +297,12 @@ if (!function_exists('adforest_register_user')) {
                     if ($adforest_theme['sb_allow_featured_ads']) {
                         update_user_meta($uid, '_sb_featured_ads', $adforest_theme['sb_featured_ads_limit']);
                     }
+                    if ($adforest_theme['sb_allow_sticky_ads']) {
+                        update_user_meta($uid, '_sb_sticky_ads', $adforest_theme['sb_sticky_ads_limit']);
+                    }
+                    if ($adforest_theme['sb_allow_sticky_ads']) {
+                        update_user_meta($uid, '_sb_sticky_ads', $adforest_theme['sb_sticky_limit']);
+                    }
                     if ($adforest_theme['sb_allow_bump_ads']) {
                         update_user_meta($uid, '_sb_bump_ads', $adforest_theme['sb_bump_ads_limit']);
                     }
@@ -310,6 +316,7 @@ if (!function_exists('adforest_register_user')) {
                 } else {
                     update_user_meta($uid, '_sb_simple_ads', 0);
                     update_user_meta($uid, '_sb_featured_ads', 0);
+                    update_user_meta($uid, '_sb_sticky_ads', 0);
                     update_user_meta($uid, '_sb_bump_ads', 0);
                     update_user_meta($uid, '_sb_expire_ads', date('Y-m-d'));
                 }
@@ -485,6 +492,9 @@ if (!function_exists('adforest_do_register')) {
             if ($adforest_theme['sb_allow_featured_ads']) {
                 update_user_meta($uid, '_sb_featured_ads', $adforest_theme['sb_featured_ads_limit']);
             }
+            if ($adforest_theme['sb_allow_sticky_ads']) {
+                update_user_meta($uid, '_sb_sticky_ads', $adforest_theme['sb_sticky_ads_limit']);
+            }
             if ($adforest_theme['sb_allow_bump_ads']) {
                 update_user_meta($uid, '_sb_bump_ads', $adforest_theme['sb_bump_ads_limit']);
             }
@@ -498,6 +508,7 @@ if (!function_exists('adforest_do_register')) {
         } else {
             update_user_meta($uid, '_sb_simple_ads', 0);
             update_user_meta($uid, '_sb_featured_ads', 0);
+            update_user_meta($uid, '_sb_sticky_ads', 0);
             update_user_meta($uid, '_sb_bump_ads', 0);
             update_user_meta($uid, '_sb_expire_ads', date('Y-m-d'));
         }

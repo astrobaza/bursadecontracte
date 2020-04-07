@@ -26,6 +26,7 @@ if (!function_exists('adforest_after_payment')) {
 
             $ads = get_post_meta($product_id, 'package_free_ads', true);
             $featured_ads = get_post_meta($product_id, 'package_featured_ads', true);
+            $sticky_num = get_post_meta($product_id, '_sb_sticky_num', true);
             $bump_ads = get_post_meta($product_id, 'package_bump_ads', true);
             $days = get_post_meta($product_id, 'package_expiry_days', true);
             /*
@@ -77,6 +78,7 @@ if (!function_exists('adforest_after_payment')) {
                     update_user_meta($uid, '_sb_simple_ads', $ads);
                 }
             }
+            
             if ($featured_ads == '-1') {
                 update_user_meta($uid, '_sb_featured_ads', '-1');
             } else if (is_numeric($featured_ads) && $featured_ads != 0) {
@@ -89,6 +91,21 @@ if (!function_exists('adforest_after_payment')) {
                     update_user_meta($uid, '_sb_featured_ads', $featured_ads);
                 }
             }
+
+            if ($sticky_num == '-1') {
+                update_user_meta($uid, '_sb_sticky_num', '-1');
+            } else if (is_numeric($sticky_num) && $sticky_num != 0) {
+                $f_ads = get_user_meta($uid, '_sb_sticky_num', true);
+                if ($f_ads != '-1') {
+                    $f_ads = (int) $f_ads;
+                    $new_f_fads = $sticky_num + $f_ads;
+                    update_user_meta($uid, '_sb_sticky_num', $new_f_fads);
+                } else if ($f_ads == '-1') {
+                    update_user_meta($uid, '_sb_sticky_num', $sticky_num);
+                }
+            }
+
+
 
             if ($bump_ads == '-1') {
                 update_user_meta($uid, '_sb_bump_ads', '-1');
@@ -133,6 +150,7 @@ if (!function_exists('adforest_after_payment_test')) {
 
         $ads = get_post_meta($product_id, 'package_free_ads', true);
         $featured_ads = get_post_meta($product_id, 'package_featured_ads', true);
+        $sticky_num = get_post_meta($product_id, 'package_sticky_num', true);
         $days = get_post_meta($product_id, 'package_expiry_days', true);
 
         update_user_meta($uid, '_sb_pkg_type', get_the_title($product_id));
@@ -152,6 +170,16 @@ if (!function_exists('adforest_after_payment_test')) {
             $new_f_fads = $featured_ads + $f_ads;
             update_user_meta($uid, '_sb_featured_ads', $new_f_fads);
         }
+        if ($sticky_num == '-1') {
+            update_user_meta($uid, '_sb_sticky_num', '-1');
+        } else if (is_numeric($sticky_num) && $sticky_num != 0) {
+            $f_ads = get_user_meta($uid, '_sb_sticky_num', true);
+            $f_ads = (int) $f_ads;
+            $new_f_fads = $sticky_num + $f_ads;
+            update_user_meta($uid, '_sb_sticky_num', $new_f_fads);
+        }
+
+
 
         if ($days == '-1') {
             update_user_meta($uid, '_sb_expire_ads', '-1');

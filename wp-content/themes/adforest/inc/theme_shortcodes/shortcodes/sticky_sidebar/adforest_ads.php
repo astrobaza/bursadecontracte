@@ -10,7 +10,7 @@ $cat_array = apply_filters('adforest_ajax_load_categories', $cat_array, 'cat');
 
 vc_map(array(
     "name" => __("Ads", 'adforest'),
-    "description" => __("Featured or Simple Ads", 'adforest'),
+    "description" => __("Featured, Sticky or Simple Ads", 'adforest'),
     "base" => "adforest_ads",
     "category" => __("Theme Shortcodes", 'adforest'),
     "as_child" => array('only' => 'sticky_sidebar'),
@@ -32,6 +32,7 @@ vc_map(array(
             "value" => array(
                 __('Select Ads Type', 'adforest') => '',
                 __('Featured Ads', 'adforest') => 'feature',
+                __('Sticky Ads', 'adforest') => 'sticky',
                 __('Simple Ads', 'adforest') => 'regular'
             ),
         ),

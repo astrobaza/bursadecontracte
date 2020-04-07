@@ -132,6 +132,7 @@ if (!function_exists('adforest_ad_posting')) {
 
             update_post_meta($pid, '_adforest_ad_status_', 'active');
             update_post_meta($pid, '_adforest_is_feature', '0');
+            update_post_meta($pid, '_adforest_is_sticky', '0');
             adforest_get_notify_on_ad_post($pid);
         }
 
@@ -292,6 +293,27 @@ if (!function_exists('adforest_ad_posting')) {
                 update_user_meta(get_current_user_id(), '_sb_featured_ads', $new_featured_count);
             }
         }
+
+        // Making it sticky ad
+        if (isset($params['sb_make_it_sticky']) && $params['sb_make_it_sticky']) {
+            // Uptaing remaining ads.
+            $sticky_ad = get_user_meta(get_current_user_id(), '_sb_sticky_ads', true);
+            if ($sticky_ad > 0 || $sticky_ad == '-1') {
+                update_post_meta($pid, '_adforest_is_sticky', '1');
+                update_post_meta($pid, '_adforest_is_sticky_date', date('Y-m-d'));
+
+                $old_sticky_count = $sticky_ad;
+                $new_sticky_count = '';
+                if ($old_sticky_count == '-1') {
+                    $new_sticky_count = '-1';
+                } elseif ($old_sticky_count > 0) {
+                    $new_sticky_count = $old_sticky_count - 1;
+                }
+                update_user_meta(get_current_user_id(), '_sb_sticky_ads', $new_sticky_count);
+            }
+        }
+
+
 
         // Bumping it up
         if (isset($params['sb_bump_up']) && $params['sb_bump_up']) {

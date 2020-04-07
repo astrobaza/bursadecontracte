@@ -154,6 +154,32 @@ if ($mapType == 'google_map') {
             <div class="search-with-adss">
                 <div class="clearfix"></div>
                 <?php
+                
+                if (isset($adforest_theme['sticky_on_search']) && $adforest_theme['sticky_on_search'] && $results->have_posts()) {
+                    $args = array(
+                        'post_type' => 'ad_post',
+                        'post_status' => 'publish',
+                        'posts_per_page' => $adforest_theme['max_ads_sticky'],
+                        'tax_query' => array(
+                            $category,
+                        ),
+                        'meta_query' => array(
+                            array(
+                                'key' => '_adforest_is_sticky',
+                                'value' => 1,
+                                'compare' => '=',
+                            ),
+                            array(
+                                'key' => '_adforest_ad_status_',
+                                'value' => 'active',
+                                'compare' => '=',
+                            ),
+                        ),
+                        'orderby' => 'rand',
+                    );
+                    $ads = new ads();
+                    echo ( '<div class="row">' . $ads->adforest_get_ads_grid_slider($args, $adforest_theme['sticky_ads_title'], 4, '') . '</div>' );
+                }
                 if (isset($adforest_theme['feature_on_search']) && $adforest_theme['feature_on_search'] && $results->have_posts()) {
                     $args = array(
                         'post_type' => 'ad_post',
@@ -179,7 +205,6 @@ if ($mapType == 'google_map') {
                     $ads = new ads();
                     echo ( '<div class="row">' . $ads->adforest_get_ads_grid_slider($args, $adforest_theme['feature_ads_title'], 4, '') . '</div>' );
                 }
-
                 $marker = trailingslashit(get_template_directory_uri()) . 'images/car-marker.png';
                 $marker_more = trailingslashit(get_template_directory_uri()) . 'images/car-marker-more.png';
                 $close_url = trailingslashit(get_template_directory_uri()) . 'images/close.gif';

@@ -182,6 +182,11 @@ if (!function_exists('price_modern_short_base_func')) {
                         $inner_html .= '<span class="f_custom">' . __('Featured Ads', 'adforest') . ': ' . $feature_ads . '</span>';
                     }
 
+                    if (get_post_meta($row['product'], 'package_sticky_ads', true) != "") {
+                        $sticky_ads = get_post_meta($row['product'], 'package_sticky_ads', true) == '-1' ? __('Unlimited', 'adforest') : get_post_meta($row['product'], 'package_sticky_ads', true);
+                        $inner_html .= '<span class="f_custom">' . __('sticky Ads', 'adforest') . ': ' . $sticky_ads . '</span>';
+                    }
+
                     if (get_post_meta($row['product'], 'package_bump_ads', true) != "") {
                         $bump_ads = get_post_meta($row['product'], 'package_bump_ads', true) == '-1' ? __('Unlimited', 'adforest') : get_post_meta($row['product'], 'package_bump_ads', true);
                         $inner_html .= '<span class="f_custom">' . __('Bump-up Ads', 'adforest') . ': ' . $bump_ads . '</span>';

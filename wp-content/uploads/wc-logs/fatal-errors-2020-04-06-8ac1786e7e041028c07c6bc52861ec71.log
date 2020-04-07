@@ -1,0 +1,120 @@
+2020-04-06T21:28:56+00:00 CRITICAL require_once(): Failed opening required '/astronautulroz/run.php' (include_path='C:\laragon\www\bc\wp-content\plugins\sabai/lib;.;C:/laragon/etc/php/pear') în C:\laragon\www\bc\wp-content\themes\adforest-child\functions.php pe linia 3
+
+2020-04-06T21:29:21+00:00 CRITICAL require_once(): Failed opening required '/astronautulroz/run.php' (include_path='C:\laragon\www\bc\wp-content\plugins\sabai/lib;.;C:/laragon/etc/php/pear') în C:\laragon\www\bc\wp-content\themes\adforest-child\functions.php pe linia 3
+
+2020-04-06T21:29:37+00:00 CRITICAL require_once(): Failed opening required '/astronautulroz/run.php' (include_path='C:\laragon\www\bc\wp-content\plugins\sabai/lib;.;C:/laragon/etc/php/pear') în C:\laragon\www\bc\wp-content\themes\adforest-child\functions.php pe linia 3
+
+2020-04-06T21:30:30+00:00 CRITICAL require_once(): Failed opening required '/astronautulroz/run.php' (include_path='C:\laragon\www\bc\wp-content\plugins\sabai/lib;.;C:/laragon/etc/php/pear') în C:\laragon\www\bc\wp-content\themes\adforest-child\functions.php pe linia 3
+
+2020-04-06T21:31:21+00:00 CRITICAL require_once(): Failed opening required '/astronautulroz/run.php' (include_path='C:\laragon\www\bc\wp-content\plugins\sabai/lib;.;C:/laragon/etc/php/pear') în C:\laragon\www\bc\wp-content\themes\adforest-child\functions.php pe linia 3
+
+2020-04-06T21:31:24+00:00 CRITICAL require_once(): Failed opening required '/astronautulroz/run.php' (include_path='C:\laragon\www\bc\wp-content\plugins\sabai/lib;.;C:/laragon/etc/php/pear') în C:\laragon\www\bc\wp-content\themes\adforest-child\functions.php pe linia 3
+
+2020-04-06T21:31:26+00:00 CRITICAL require_once(): Failed opening required '/astronautulroz/run.php' (include_path='C:\laragon\www\bc\wp-content\plugins\sabai/lib;.;C:/laragon/etc/php/pear') în C:\laragon\www\bc\wp-content\themes\adforest-child\functions.php pe linia 3
+
+2020-04-06T21:31:27+00:00 CRITICAL require_once(): Failed opening required '/astronautulroz/run.php' (include_path='C:\laragon\www\bc\wp-content\plugins\sabai/lib;.;C:/laragon/etc/php/pear') în C:\laragon\www\bc\wp-content\themes\adforest-child\functions.php pe linia 3
+
+2020-04-06T21:31:28+00:00 CRITICAL require_once(): Failed opening required '/astronautulroz/run.php' (include_path='C:\laragon\www\bc\wp-content\plugins\sabai/lib;.;C:/laragon/etc/php/pear') în C:\laragon\www\bc\wp-content\themes\adforest-child\functions.php pe linia 3
+
+2020-04-06T21:31:29+00:00 CRITICAL require_once(): Failed opening required '/astronautulroz/run.php' (include_path='C:\laragon\www\bc\wp-content\plugins\sabai/lib;.;C:/laragon/etc/php/pear') în C:\laragon\www\bc\wp-content\themes\adforest-child\functions.php pe linia 3
+
+2020-04-06T21:31:37+00:00 CRITICAL require_once(): Failed opening required '/astronautulroz/run.php' (include_path='C:\laragon\www\bc\wp-content\plugins\sabai/lib;.;C:/laragon/etc/php/pear') în C:\laragon\www\bc\wp-content\themes\adforest-child\functions.php pe linia 3
+
+2020-04-06T21:31:37+00:00 CRITICAL require_once(): Failed opening required '/astronautulroz/run.php' (include_path='C:\laragon\www\bc\wp-content\plugins\sabai/lib;.;C:/laragon/etc/php/pear') în C:\laragon\www\bc\wp-content\themes\adforest-child\functions.php pe linia 3
+
+2020-04-06T21:31:55+00:00 CRITICAL Uncaught Error: Call to undefined function get_temaplte_directory() in C:\laragon\www\bc\wp-content\themes\adforest-child\functions.php:3
+Stack trace:
+#0 C:\laragon\www\bc\wp-settings.php(497): include()
+#1 C:\laragon\www\bc\wp-config.php(90): require_once('C:\\laragon\\www\\...')
+#2 C:\laragon\www\bc\wp-load.php(37): require_once('C:\\laragon\\www\\...')
+#3 C:\laragon\www\bc\wp-admin\admin.php(34): require_once('C:\\laragon\\www\\...')
+#4 C:\laragon\www\bc\wp-admin\post.php(12): require_once('C:\\laragon\\www\\...')
+#5 {main}
+  thrown în C:\laragon\www\bc\wp-content\themes\adforest-child\functions.php pe linia 3
+
+2020-04-06T21:32:09+00:00 CRITICAL require_once(): Failed opening required 'C:\laragon\www\bc/wp-content/themes/adforest/astronautulroz/run.php' (include_path='C:\laragon\www\bc\wp-content\plugins\sabai/lib;.;C:/laragon/etc/php/pear') în C:\laragon\www\bc\wp-content\themes\adforest-child\functions.php pe linia 3
+
+2020-04-06T22:23:37+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3626
+
+2020-04-06T22:25:37+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3638
+
+2020-04-06T22:27:37+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3638
+
+2020-04-06T22:29:37+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3638
+
+2020-04-06T22:31:37+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3638
+
+2020-04-06T22:33:37+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3638
+
+2020-04-06T22:35:37+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3638
+
+2020-04-06T22:37:37+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3638
+
+2020-04-06T22:39:37+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3638
+
+2020-04-06T22:41:37+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3638
+
+2020-04-06T22:43:37+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3638
+
+2020-04-06T22:45:37+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3638
+
+2020-04-06T22:47:37+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3638
+
+2020-04-06T22:49:37+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3638
+
+2020-04-06T22:51:30+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3638
+
+2020-04-06T22:51:37+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3638
+
+2020-04-06T22:52:29+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3638
+
+2020-04-06T22:53:37+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3638
+
+2020-04-06T22:54:29+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3638
+
+2020-04-06T22:55:37+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3638
+
+2020-04-06T22:56:29+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3638
+
+2020-04-06T22:57:37+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3638
+
+2020-04-06T22:58:29+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3638
+
+2020-04-06T22:59:37+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3638
+
+2020-04-06T23:00:29+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3638
+
+2020-04-06T23:01:37+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3638
+
+2020-04-06T23:03:37+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3638
+
+2020-04-06T23:05:37+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3638
+
+2020-04-06T23:07:37+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3638
+
+2020-04-06T23:09:37+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3638
+
+2020-04-06T23:11:37+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3638
+
+2020-04-06T23:13:37+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3638
+
+2020-04-06T23:15:37+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3638
+
+2020-04-06T23:17:37+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3638
+
+2020-04-06T23:19:37+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3638
+
+2020-04-06T23:19:48+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3638
+
+2020-04-06T23:21:37+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3638
+
+2020-04-06T23:21:55+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3638
+
+2020-04-06T23:21:57+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3638
+
+2020-04-06T23:22:09+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3637
+
+2020-04-06T23:23:37+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3637
+
+2020-04-06T23:25:37+00:00 CRITICAL syntax error, unexpected end of file în C:\laragon\www\bc\wp-content\themes\adforest\inc\theme_shortcodes\classes\ads.php pe linia 3637
+

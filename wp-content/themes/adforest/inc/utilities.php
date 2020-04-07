@@ -1737,6 +1737,23 @@ if (!function_exists('adforest_comments_list')) :
 
     }
 
+    if (!function_exists('adforest_get_sticky_text')) {
+
+        function adforest_get_sticky_text($pid) {
+            ?>
+            <div role="alert" class="alert alert-info alert-dismissible <?php echo adforest_alert_type();?>">
+                <button aria-label="Close" data-dismiss="alert" class="close" type="button"><span aria-hidden="true">&#10005;</span></button>
+                <?php echo __('Mark as sticky Ad,', 'adforest');?>
+                <a href="javascript:void(0);" class="sb_anchor" data-btn-ok-label="<?php echo __('Yes', 'adforest');?>" data-btn-cancel-label="<?php echo __('No', 'adforest');?>" data-toggle="confirmation" data-singleton="true" data-title="<?php echo __('Are you sure?', 'adforest');?>" data-content="" id="sb_sticky_ad" aaa_id="<?php echo esc_attr($pid);?>">
+                    <?php echo __('Click Here.', 'adforest');?>
+                </a>
+            </div>
+            <?php
+        }
+
+    }
+
+
     add_filter('register_post_type_args', 'adforest_register_post_type_args', 10, 2);
     if (!function_exists('adforest_register_post_type_args')) {
 
@@ -1800,6 +1817,9 @@ if (!function_exists('adforest_comments_list')) :
 
             $fet_cls = '';
             if ($is_grid2 && get_post_meta(get_the_ID(), '_adforest_is_feature', true) == '1') {
+                $fet_cls = 'video_position';
+            }
+            if ($is_grid2 && get_post_meta(get_the_ID(), '_adforest_is_sticky', true) == '1') {
                 $fet_cls = 'video_position';
             }
 

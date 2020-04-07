@@ -61,6 +61,19 @@ function sb_show_extra_profile_fields($user) {
             </td>
         </tr>
         <tr>
+            <th><label for="_sb_sticky_ads"><?php echo __('Sticky Ads Remaining', 'redux-framework');?></label></th>
+            <?php
+            $sticky_ads = get_the_author_meta('_sb_sticky_ads', $user->ID);
+            if ($sticky_ads == "") {
+                $sticky_ads = 0;
+            }
+            ?>
+            <td>
+                <input type="text" name="_sb_sticky_ads" id="_sb_sticky_ads" value="<?php echo esc_attr($sticky_ads);?>" class="regular-text" /><br />
+                <p><?php echo __('-1 means unlimited.', 'redux-framework');?>
+            </td>
+        </tr>
+        <tr>
             <th><label for="_sb_bump_ads"><?php echo __('Bump up Ads Remaining', 'redux-framework');?></label></th>
             <?php
             $bump_ads = get_the_author_meta('_sb_bump_ads', $user->ID);
@@ -272,6 +285,7 @@ function sb_save_extra_profile_fields($user_id) {
     update_user_meta(absint($user_id), '_sb_pkg_type', wp_kses_post($_POST['_sb_pkg_type']));
     update_user_meta(absint($user_id), '_sb_simple_ads', wp_kses_post($_POST['_sb_simple_ads']));
     update_user_meta(absint($user_id), '_sb_featured_ads', wp_kses_post($_POST['_sb_featured_ads']));
+    update_user_meta(absint($user_id), '_sb_sticky_ads', wp_kses_post($_POST['_sb_sticky_ads']));
     update_user_meta(absint($user_id), '_sb_bump_ads', wp_kses_post($_POST['_sb_bump_ads']));
     update_user_meta(absint($user_id), '_sb_expire_ads', wp_kses_post($_POST['_sb_expire_ads']));
     update_user_meta(absint($user_id), '_sb_badge_type', wp_kses_post($_POST['_sb_badge_type']));

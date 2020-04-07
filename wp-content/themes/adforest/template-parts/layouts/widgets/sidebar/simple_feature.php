@@ -33,6 +33,11 @@
                             <label for="minimal-radio-sb_2" >
                                 <?php echo __('Featured Ads', 'adforest'); ?></label>
                         </li>
+                        <li>
+                            <input tabindex="7" type="radio" id="minimal-radio-sb_2" name="ad" value="1" <?php echo esc_attr($sticky); ?>  >
+                            <label for="minimal-radio-sb_2" >
+                                <?php echo __('Sticky Ads', 'adforest'); ?></label>
+                        </li>
                     </ul>
                 </div>
             </div>

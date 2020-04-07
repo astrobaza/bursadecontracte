@@ -39,6 +39,10 @@ if (!class_exists('packages')) {
                         $feature_ads = get_post_meta(get_the_ID(), 'package_featured_ads', true) == '-1' ? __('Unlimited', 'adforest') : get_post_meta(get_the_ID(), 'package_featured_ads', true);
                         $li .= '<li>' . __('Featured Ads', 'adforest') . ': ' . $feature_ads . '</li>';
                     }
+                    if (get_post_meta(get_the_ID(), 'package_sticky_ads', true) != "") {
+                        $sticky_ads = get_post_meta(get_the_ID(), 'package_sticky_ads', true) == '-1' ? __('Unlimited', 'adforest') : get_post_meta(get_the_ID(), 'package_sticky_ads', true);
+                        $li .= '<li>' . __('Sticky Ads', 'adforest') . ': ' . $sticky_ads . '</li>';
+                    }
 
                     $html .= '<div class="col-sm-6 col-lg-' . esc_attr($cols) . ' col-md-' . esc_attr($cols) . '">
                            <div class="' . $cls . '">

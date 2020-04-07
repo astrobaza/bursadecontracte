@@ -318,6 +318,13 @@ if (!class_exists('adforest_visited_ads')) {
                                                 <span>' . __('Featured', 'adforest') . '</span>
                                          </div>';
                                     }
+                                    
+                                    $is_sticky = '';
+                                    if (get_post_meta($pid, '_adforest_is_sticky', true) == '1') {
+                                        $is_sticky = '<div class="' . esc_attr($ribbion) . '">
+                                                <span>' . __('sticky', 'adforest') . '</span>
+                                         </div>';
+                                    }
                                     ?>
                                     <div class="item">
                                         <div class="col-md-12 col-xs-12 col-sm-12 no-padding">
@@ -327,6 +334,7 @@ if (!class_exists('adforest_visited_ads')) {
                                                 <!-- Ad Img -->
                                                 <div class="category-grid-img">
                                                     <?php echo adforest_returnEcho($is_feature);?>
+                                                    <?php echo adforest_returnEcho($is_sticky);?>
                                                     <?php echo adforest_returnEcho($timer_html);?>
                                                     <img class="img-responsive" alt="<?php echo get_the_title();?>" src="<?php echo esc_url($img);?>">
                                                     <!-- Ad Status -->

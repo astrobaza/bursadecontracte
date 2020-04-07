@@ -98,6 +98,9 @@ wp_enqueue_script('adforest-perfect-scrollbar');
                             if (get_post_meta($pid, '_adforest_is_feature', true) == '1' && get_post_meta($pid, '_adforest_ad_status_', true) == 'active') {
                                 echo '<li> <span class="badge">' . __('Featured', 'adforest') . '</span> </li>';
                             }
+                            if (get_post_meta($pid, '_adforest_is_sticky', true) == '1' && get_post_meta($pid, '_adforest_ad_status_', true) == 'active') {
+                                echo '<li> <span class="badge">' . __('Sticky', 'adforest') . '</span> </li>';
+                            }
                             ?>
                         </ul>
                     </div>

@@ -1,0 +1,10 @@
+2020-04-07T01:02:59+00:00 CRITICAL Uncaught Error: Call to undefined method ads::adforest_search_layout_grid_2() in C:\laragon\www\bc\wp-content\themes\adforest\template-parts\layouts\ad_style\search-layout-grid.php:33
+Stack trace:
+#0 C:\laragon\www\bc\wp-content\themes\adforest\template-parts\layouts\search\search-map.php(278): require()
+#1 C:\laragon\www\bc\wp-content\themes\adforest\page-search.php(327): require('C:\\laragon\\www\\...')
+#2 C:\laragon\www\bc\wp-includes\template-loader.php(98): include('C:\\laragon\\www\\...')
+#3 C:\laragon\www\bc\wp-blog-header.php(19): require_once('C:\\laragon\\www\\...')
+#4 C:\laragon\www\bc\index.php(17): require('C:\\laragon\\www\\...')
+#5 {main}
+  thrown în C:\laragon\www\bc\wp-content\themes\adforest\template-parts\layouts\ad_style\search-layout-grid.php pe linia 33
+

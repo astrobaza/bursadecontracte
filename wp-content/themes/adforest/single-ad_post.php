@@ -47,6 +47,41 @@ if (have_posts()) {
                 }
             }
         }
+        // Make expired to sticky ad
+        if (isset($adforest_theme['simple_ad_removal']) && $adforest_theme['simple_ad_removal'] != '-1') {
+            $now = time(); // or your date as well
+            $simple_date = strtotime(get_the_date('Y-m-d'));
+            $simple_days = adforest_days_diff($now, $simple_date);
+            $expiry_days = $adforest_theme['simple_ad_removal'];
+            $after_expired_ads = isset($adforest_theme['after_expired_ads']) && !empty($adforest_theme['after_expired_ads']) ? $adforest_theme['after_expired_ads'] : 'trashed';
+            if ($after_expired_ads == 'expired') {
+                if ($simple_days > $expiry_days) {
+                    update_post_meta($aid, '_adforest_ad_status_', 'expired');
+                    $my_post = array(
+                        'ID' => $aid,
+                        'post_status' => 'draft',
+                        'post_type' => 'ad_post',
+                    );
+                    wp_update_post($my_post);
+                }
+            } else {
+                if ($simple_days > $expiry_days) {
+                    wp_trash_post($aid);
+                }
+            }
+        }
+        if (get_post_meta($aid, '_adforest_is_sticky', true) == '1' && $adforest_theme['sticky_expiry'] != '-1') {
+            if (isset($adforest_theme['sticky_expiry']) && $adforest_theme['sticky_expiry'] != '-1') {
+                $now = time(); // or your date as well
+                $sticky_date = strtotime(get_post_meta($aid, '_adforest_is_sticky_date', true));
+
+                $sticky_days = adforest_days_diff($now, $sticky_date);
+                $expiry_days = $adforest_theme['sticky_expiry'];
+                if ($sticky_days > $expiry_days) {
+                    update_post_meta($aid, '_adforest_is_sticky', 0);
+                }
+            }
+        }
 
         adforest_setPostViews($aid);
 

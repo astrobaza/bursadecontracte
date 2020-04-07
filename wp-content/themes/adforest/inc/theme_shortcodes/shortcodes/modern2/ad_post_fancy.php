@@ -116,6 +116,7 @@ if (!function_exists('ad_post_fancy_short_base_func')) {
 
         $ad_price_type = '';
         $is_feature_ad = 0;
+        $is_sticky_ad = 0;
 
         $ad_currency = '';
         $levelz = '';
@@ -155,6 +156,7 @@ if (!function_exists('ad_post_fancy_short_base_func')) {
                 $ad_bidding = get_post_meta($id, '_adforest_ad_bidding', true);
                 $ad_price_type = get_post_meta($id, '_adforest_ad_price_type', true);
                 $is_feature_ad = get_post_meta($id, '_adforest_is_feature', true);
+                $is_sticky_ad = get_post_meta($id, '_adforest_is_sticky', true);
                 $ad_currency = get_post_meta($id, '_adforest_ad_currency', true);
 
                 $ad_bidding_date = get_post_meta($id, '_adforest_ad_bidding_date', true);
@@ -947,6 +949,50 @@ var mymap = L.map(\'dvMap\').setView([' . $pin_lat . ', ' . $pin_long . '], 13);
 				' . __('This ad is already featured.', 'adforest') . '</div>';
             }
         }
+        $simple_sticky_html = '';
+        if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
+
+            if (isset($adforest_theme['allow_sticky_on_ad']) && $adforest_theme['allow_sticky_on_ad'] && $is_sticky_ad == 0 && ( get_user_meta(get_current_user_id(), '_sb_expire_ads', true) == '-1' || get_user_meta(get_current_user_id(), '_sb_expire_ads', true) >= date('Y-m-d') )) {
+
+                if (get_user_meta(get_current_user_id(), '_sb_sticky_ads', true) == '-1' || get_user_meta(get_current_user_id(), '_sb_sticky_ads', true) > 0) {
+
+                    $count_sticky_ads = __('Sticky ads remaining: Unlimited', 'adforest');
+
+                    if (get_user_meta(get_current_user_id(), '_sb_sticky_ads', true) > 0) {
+                        $count_sticky_ads = __('Sticky ads remaining :', 'adforest') . '<span> ( ' . get_user_meta(get_current_user_id(), '_sb_sticky_ads', true) . ' ) </span>';
+                    }
+                    $sticky_text = '';
+                    if (isset($adforest_theme['sb_sticky_desc']) && $adforest_theme['sb_sticky_desc'] != "") {
+                        $sticky_text = $adforest_theme['sb_sticky_desc'];
+                    }
+                    $simple_sticky_html = '<div class="adf-content checkbox-wrap">
+                                                <input type="checkbox" name="sb_make_it_sticky" id="sb_make_it_sticky" />
+                                                <span>' . __('Make it sticky', 'adforest') . ' </span><small>' . $count_sticky_ads . '</small>
+                                                 <p>' . $sticky_text . '</p>
+                                            </div>';
+                } else {
+                    $simple_sticky_html = '<div role="alert" class="alert alert-info alert-dismissible ' . adforest_alert_type() . '">
+				<button aria-label="Close" data-dismiss="alert" class="close" type="button"></button>
+				' . __('If you want to make it sticky then please have a look on', 'adforest') . ' 
+				<a href="' . get_the_permalink($sb_packages_page) . '" class="sb_anchor" target="_blank">
+				' . __('Packages. ', 'adforest') . '
+                </a></div>';
+                }
+            } else {
+                $simple_sticky_html = '<div role="alert" class="alert alert-info alert-dismissible ' . adforest_alert_type() . '">
+			<button aria-label="Close" data-dismiss="alert" class="close" type="button"></button>
+			' . __('If you want to make it sticky then please have a look on', 'adforest') . ' 
+			<a href="' . get_the_permalink($sb_packages_page) . '" class="sb_anchor" target="_blank">
+			' . __('Packages. ', 'adforest') . '
+			</a></div>';
+            }
+
+            if ($is_sticky_ad == 1) {
+                $simple_sticky_html = '<div role="alert" class="alert alert-info alert-dismissible ' . adforest_alert_type() . '">
+				<button aria-label="Close" data-dismiss="alert" class="close" type="button"></button>
+				' . __('This ad is already sticky.', 'adforest') . '</div>';
+            }
+        }
 
 
 
@@ -1204,6 +1250,7 @@ var mymap = L.map(\'dvMap\').setView([' . $pin_lat . ', ' . $pin_long . '], 13);
                                 ' . $extra_fields_html . '  
                                   ' . $directory_ad_post_html . '
                                         ' . $simple_feature_html . '
+                                        ' . $simple_sticky_html . '
 					' . $bump_ad_html . '
                                         ' . $tems_cond_field . ' 
                                 

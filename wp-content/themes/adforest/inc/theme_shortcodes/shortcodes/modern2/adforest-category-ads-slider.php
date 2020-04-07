@@ -42,6 +42,7 @@ if (!function_exists('adforest_category_ads_slider_shortcode')) {
                     "value" => array(
                         __('Select Ads Type', 'adforest') => '',
                         __('Featured Ads', 'adforest') => 'feature',
+                        __('Sticky Ads', 'adforest') => 'sticky',
                         __('Simple Ads', 'adforest') => 'regular',
                         __('Both', 'adforest') => 'both'
                     ),
@@ -174,6 +175,7 @@ if (!function_exists('adforest_category_ads_slider_shortcode')) {
                             "value" => array(
                                 __('Select Ads Type', 'adforest') => '',
                                 __('Featured Ads', 'adforest') => 'feature',
+                                __('Sticky Ads', 'adforest') => 'sticky',
                                 __('Simple Ads', 'adforest') => 'regular',
                                 __('Both', 'adforest') => 'both'
                             ),
@@ -303,6 +305,23 @@ if (!function_exists('adforest_category_ads_slider_callback')) {
                             'compare' => '=',
                         );
                     }
+
+                    $is_stickye = '';
+                    if ($ad_typee == 'sticky') {
+                        $is_stickye = array(
+                            'key' => '_adforest_is_sticky',
+                            'value' => 1,
+                            'compare' => '=',
+                        );
+                    } else if ($ad_typee == 'both') {
+                        $is_stickye = '';
+                    } else {
+                        $is_stickye = array(
+                            'key' => '_adforest_is_sticky',
+                            'value' => 0,
+                            'compare' => '=',
+                        );
+                    }
                     $is_activee = array(
                         'key' => '_adforest_ad_status_',
                         'value' => 'active',
@@ -323,6 +342,7 @@ if (!function_exists('adforest_category_ads_slider_callback')) {
                         'posts_per_page' => $no_of_adss,
                         'meta_query' => array(
                             $is_featuree,
+                            $is_stickye,
                             $is_activee,
                         ),
                         'orderby' => $order_by,
@@ -444,6 +464,22 @@ if (!function_exists('adforest_category_ads_slider_callback')) {
                             'compare' => '=',
                         );
                     }
+                    $is_sticky = '';
+                    if ($ad_typem == 'sticky') {
+                        $is_sticky = array(
+                            'key' => '_adforest_is_sticky',
+                            'value' => 1,
+                            'compare' => '=',
+                        );
+                    } else if ($ad_typem == 'both') {
+                        $is_sticky = '';
+                    } else {
+                        $is_sticky = array(
+                            'key' => '_adforest_is_sticky',
+                            'value' => 0,
+                            'compare' => '=',
+                        );
+                    }
                     $is_active = array(
                         'key' => '_adforest_ad_status_',
                         'value' => 'active',
@@ -466,6 +502,7 @@ if (!function_exists('adforest_category_ads_slider_callback')) {
                         'posts_per_page' => $no_of_adsm,
                         'meta_query' => array(
                             $is_feature,
+                            $is_sticky,
                             $is_active,
                         ),
                         'tax_query' => array(

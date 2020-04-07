@@ -187,6 +187,11 @@ if (!function_exists('price_classic_short_base_func')) {
                         $li .= '<li>' . __('Featured Ads', 'adforest') . ': ' . $feature_ads . '</li>';
                     }
 
+                    if (get_post_meta($row['product'], 'package_sticky_ads', true) != "") {
+                        $sticky_ads = get_post_meta($row['product'], 'package_sticky_ads', true) == '-1' ? __('Unlimited', 'adforest') : get_post_meta($row['product'], 'package_sticky_ads', true);
+                        $li .= '<li>' . __('Sticky Ads', 'adforest') . ': ' . $sticky_ads . '</li>';
+                    }
+
                     if (get_post_meta($row['product'], 'package_bump_ads', true) != "") {
                         $bump_ads = get_post_meta($row['product'], 'package_bump_ads', true) == '-1' ? __('Unlimited', 'adforest') : get_post_meta($row['product'], 'package_bump_ads', true);
                         $li .= '<li>' . __('Bump-up Ads', 'adforest') . ': ' . $bump_ads . '</li>';

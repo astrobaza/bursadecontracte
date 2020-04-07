@@ -172,6 +172,11 @@ if (!function_exists('product_packages_fancy_short_base_func')) {
                         $inner_html .= ' <li><i class="fa fa-star"></i>' . __('Featured Ads', 'adforest') . ' <span>' . $feature_ads . '</span></li>';
                     }
 
+                    if (get_post_meta($row['product'], 'package_sticky_ads', true) != "") {
+                        $feature_ads = get_post_meta($row['product'], 'package_sticky_ads', true) == '-1' ? __('Unlimited', 'adforest') : get_post_meta($row['product'], 'package_featured_ads', true);
+                        $inner_html .= ' <li><i class="fa fa-star"></i>' . __('Sticky Ads', 'adforest') . ' <span>' . $sticky_ads . '</span></li>';
+                    }
+
                     if (get_post_meta($row['product'], 'package_bump_ads', true) != "") {
                         $bump_ads = get_post_meta($row['product'], 'package_bump_ads', true) == '-1' ? __('Unlimited', 'adforest') : get_post_meta($row['product'], 'package_bump_ads', true);
                         $inner_html .= '<li><i class="fa fa-rocket"></i>' . __('Bump-up Ads', 'adforest') . ' <span>' . $bump_ads . '</span></li>';

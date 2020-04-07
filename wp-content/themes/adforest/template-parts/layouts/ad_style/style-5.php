@@ -359,6 +359,17 @@ if ($breadcrumb_bg_img != '') {
 					</div>';
                             $f_class = 'featured-border';
                         }
+                        if (get_post_meta($pid, '_adforest_is_sticky', true) == '1' && get_post_meta($pid, '_adforest_ad_status_', true) == 'active') {
+                            $ribbion = 'featured-ribbon';
+                            if (is_rtl()) {
+                                $ribbion = 'featured-ribbon-rtl';
+                            }
+
+                            echo '<div class="' . esc_attr($ribbion) . '">
+					<span>' . __('Sticky', 'adforest') . '</span>
+					</div>';
+                            $f_class = 'featured-border';
+                        }
                         ?>
                         <?php get_template_part('template-parts/layouts/ad_style/slider', $adforest_theme['ad_slider_type']);?>
                         <?php get_template_part('template-parts/layouts/ad_style/desc', 'box');?>

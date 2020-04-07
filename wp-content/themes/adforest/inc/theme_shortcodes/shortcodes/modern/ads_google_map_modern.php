@@ -31,6 +31,7 @@ if (!function_exists('ads_google_map_short')) {
                     "value" => array(
                         __('Select Ads Type', 'adforest') => '',
                         __('Featured Ads', 'adforest') => 'feature',
+                        __('Sticky Ads', 'adforest') => 'sticky',
                         __('Simple Ads', 'adforest') => 'regular',
                         __('Both', 'adforest') => 'both'
                     ),
@@ -245,6 +246,21 @@ if (!function_exists('ads_google_map_short_base_func')) {
                 'compare' => '=',
             );
         }
+        if ($ad_type == 'sticky') {
+            $args['meta_query'][] = array(
+                'key' => '_adforest_is_sticky',
+                'value' => 1,
+                'compare' => '=',
+            );
+        } else if ($ad_type == 'both') {
+            
+        } else {
+            $args['meta_query'][] = array(
+                'key' => '_adforest_is_sticky',
+                'value' => 0,
+                'compare' => '=',
+            );
+        }
 
         $args = apply_filters('adforest_wpml_show_all_posts', $args);
 
@@ -281,6 +297,10 @@ if (!function_exists('ads_google_map_short_base_func')) {
                     $is_feature = get_post_meta(get_the_ID(), '_adforest_is_feature', true);
                     if ($is_feature) {
                         $ad_class = __('Featured', 'adforest');
+                    }
+                    $is_sticky = get_post_meta(get_the_ID(), '_adforest_is_sticky', true);
+                    if ($is_sticky) {
+                        $ad_class = __('Sticky', 'adforest');
                     }
 
                     $post_categories = wp_get_object_terms($pid, array('ad_cats'), array('orderby' => 'term_group'));

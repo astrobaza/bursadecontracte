@@ -1125,6 +1125,22 @@ Redux::setSection($opt_name, array(
             'default' => 1,
         ),
         array(
+            'id' => 'sb_allow_sticky_num',
+            'type' => 'switch',
+            'title' => __('Free Sticky Ads', 'adforest'),
+            'subtitle' => __('For new user', 'adforest'),
+            'default' => true,
+        ),
+        array(
+            'id' => 'sb_sticky_num_limit',
+            'type' => 'text',
+            'title' => __('Sticky Ads limit', 'adforest'),
+            'subtitle' => __('For new user', 'adforest'),
+            'required' => array('sb_allow_sticky_num', '=', array(true)),
+            'desc' => __('It must be an inter value, -1 means unlimited.', 'adforest'),
+            'default' => 1,
+        ),
+        array(
             'id' => 'sb_allow_bump_ads',
             'type' => 'switch',
             'title' => __('Free Bump Ads', 'adforest'),
@@ -1230,6 +1246,16 @@ Redux::setSection($opt_name, array(
             'desc' => __('Only integer value without spaces -1 means never expired.', 'adforest'),
             'default' => 7,
         ),
+        
+        array(
+            'id' => 'sticky_expiry',
+            'type' => 'text',
+            'title' => __('Sticky Ad Expired', 'adforest'),
+            'subtitle' => __('In DAYS', 'adforest'),
+            'desc' => __('Only integer value without spaces -1 means never expired.', 'adforest'),
+            'default' => 7,
+        ),
+
         array(
             'id' => 'sb_upload_limit',
             'type' => 'select',
@@ -1309,6 +1335,23 @@ Redux::setSection($opt_name, array(
             'required' => array('allow_featured_on_ad', '=', true),
             'default' => 'Featured AD has more attention as compare to simple ad.',
         ),
+        
+        array(
+            'id' => 'allow_sticky_on_ad',
+            'type' => 'switch',
+            'title' => __('Allow make sticky ad', 'adforest'),
+            'subtitle' => __('on ad post.', 'adforest'),
+            'default' => true,
+        ),
+        array(
+            'id' => 'sb_sticky_desc',
+            'type' => 'textarea',
+            'title' => __('Sticky ad description', 'adforest'),
+            'subtitle' => __('on ad post.', 'adforest'),
+            'required' => array('allow_sticky_on_ad', '=', true),
+            'default' => 'Sticky AD has more attention as compare to simple ad.',
+        ),
+
         array(
             'id' => 'bad_words_filter',
             'type' => 'textarea',
@@ -1469,6 +1512,19 @@ Redux::setSection($opt_name, array(
             'id' => 'ad_features_cols',
             'type' => 'button_set',
             'title' => __('Ad Features Cols', 'adforest'),
+            'options' => array(
+                '12' => '1 Cols',
+                '6' => '2 Cols',
+                '4' => '3 Cols',
+                '3' => '4 Cols',
+            ),
+            'default' => '4',
+            'required' => array('ad_layout_style_modern', '!=', array('6')),
+        ),
+        array(
+            'id' => 'ad_sticky_cols',
+            'type' => 'button_set',
+            'title' => __('Ad sticky Cols', 'adforest'),
             'options' => array(
                 '12' => '1 Cols',
                 '6' => '2 Cols',
@@ -1662,7 +1718,23 @@ $featured_ads_layout = array(
     'grid_9' => 'Grid 9',
     'grid_10' => 'Grid 10',
 );
-$featured_ads_layout = apply_filters('adfrest_directory_ads_styles', $featured_ads_layout);
+$featured_ads_layout = apply_filters('adfrest_directory_ads_styles', $featured_num_layout);
+
+$sticky_num_layout = array(
+    'grid_1' => 'Grid 1',
+    'grid_2' => 'Grid 2',
+    'grid_3' => 'Grid 3',
+    'grid_4' => 'Grid 4',
+    'grid_5' => 'Grid 5',
+    'grid_6' => 'Grid 6',
+    'grid_7' => 'Grid 7',
+    'grid_8' => 'Grid 8',
+    'grid_9' => 'Grid 9',
+    'grid_10' => 'Grid 10',
+);
+$sticky_num_layout = apply_filters('adfrest_directory_ads_styles', $sticky_num_layout);
+
+
 
 Redux::setSection($opt_name, array(
     'title' => __('Search Settings', 'adforest'),
@@ -1714,6 +1786,15 @@ Redux::setSection($opt_name, array(
             'desc' => __('Enable this option to display featured ads at the first.', 'adforest'),
             'default' => false,
         ),
+        array(
+            'id' => 'sticky_first',
+            'type' => 'switch',
+            'title' => __('Sticky First', 'adforest'),
+            'subtitle' => __('Dispaly ads in search page.', 'adforest'),
+            'desc' => __('Enable this option to display sticky ads at the first.', 'adforest'),
+            'default' => false,
+        ),
+
         array(
             'id' => 'search_design',
             'type' => 'button_set',
@@ -1944,6 +2025,13 @@ Redux::setSection($opt_name, array(
             'default' => true,
         ),
         array(
+            'id' => 'sticky_on_search',
+            'type' => 'switch',
+            'title' => __('sticky Ads', 'adforest'),
+            'subtitle' => __('on search, location and category', 'adforest'),
+            'default' => true,
+        ),
+        array(
             'id' => 'featured_ad_slider_layout',
             'type' => 'button_set',
             'title' => __('Featured Ads Layout', 'adforest'),
@@ -1951,6 +2039,16 @@ Redux::setSection($opt_name, array(
             'default' => 'grid_1',
             'required' => array('feature_on_search', '=', array(true)),
         ),
+        
+        array(
+            'id' => 'sticky_ad_slider_layout',
+            'type' => 'button_set',
+            'title' => __('Sticky Ads Layout', 'adforest'),
+            'options' => $sticky_num_layout,
+            'default' => 'grid_1',
+            'required' => array('feature_on_search', '=', array(true)),
+        ),
+
         array(
             'id' => 'max_ads_feature',
             'type' => 'select',
@@ -1966,6 +2064,22 @@ Redux::setSection($opt_name, array(
             'required' => array('feature_on_search', '=', array(true)),
             'default' => 'Featured Ads',
         ),
+        array(
+            'id' => 'max_ads_sticky',
+            'type' => 'select',
+            'title' => __('Max sticky ads to show', 'adforest'),
+            'required' => array('feature_on_search', '=', array(true)),
+            'options' => array(1 => 1, 2 => 2, 3 => 3, 4 => 4, 5 => 5, 6 => 6, 7 => 7, 8 => 8, 9 => 9, 10 => 10, 11 => 11, 12 => 12, 13 => 13, 14 => 14, 15 => 15),
+            'default' => 5,
+        ),
+        array(
+            'id' => 'sticky_ads_title',
+            'type' => 'text',
+            'title' => __('sticky Ads Title', 'adforest'),
+            'required' => array('feature_on_search', '=', array(true)),
+            'default' => 'sticky Ads',
+        ),
+
         array(
             'id' => 'search_ad_720_1',
             'type' => 'textarea',

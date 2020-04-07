@@ -145,6 +145,7 @@ if (!function_exists('ads_short')) {
                     "value" => array(
                         __('Select Ads Type', 'adforest') => '',
                         __('Featured Ads', 'adforest') => 'feature',
+                        __('sticky Ads', 'adforest') => 'sticky',
                         __('Simple Ads', 'adforest') => 'regular',
                         __('Both', 'adforest') => 'both'
                     ),

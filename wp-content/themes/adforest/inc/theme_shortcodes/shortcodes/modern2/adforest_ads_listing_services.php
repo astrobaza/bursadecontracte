@@ -147,6 +147,7 @@ if (!function_exists('adforest_ads_listing_grid_short')) {
                     "value" => array(
                         __('Select Ads Type', 'adforest') => '',
                         __('Featured Ads', 'adforest') => 'feature',
+                        __('Sticky Ads', 'adforest') => 'sticky',
                         __('Simple Ads', 'adforest') => 'regular',
                         __('Both', 'adforest') => 'both'
                     ),
@@ -278,6 +279,22 @@ if (!function_exists('adforest_ads_listing_grid_callback')) {
         } else {
             $args['meta_query'][] = array(
                 'key' => '_adforest_is_feature',
+                'value' => 0,
+                'compare' => '=',
+            );
+        }
+
+        if ($ad_type == 'sticky') {
+            $args['meta_query'][] = array(
+                'key' => '_adforest_is_sticky',
+                'value' => 1,
+                'compare' => '=',
+            );
+        } else if ($ad_type == 'both') {
+            
+        } else {
+            $args['meta_query'][] = array(
+                'key' => '_adforest_is_sticky',
                 'value' => 0,
                 'compare' => '=',
             );

@@ -43,6 +43,9 @@ if ($adforest_theme['Related_ads_on']) {
         if (isset($adforest_theme['featured_ad_slider_layout']) && $adforest_theme['featured_ad_slider_layout'] != "") {
             $grid_type = $adforest_theme['featured_ad_slider_layout'];
         }
+        if (isset($adforest_theme['sticky_ad_slider_layout']) && $adforest_theme['sticky_ad_slider_layout'] != "") {
+            $grid_type = $adforest_theme['sticky_ad_slider_layout'];
+        }
         $ads = new WP_Query($args);
 
         $ads_clone = new ads();

@@ -293,8 +293,8 @@ $args = array(
     'paged' => $paged,
 );
 $args = apply_filters('adforest_wpml_show_all_posts', $args);
-
 $featured_first = isset($adforest_theme['featured_first']) && $adforest_theme['featured_first'] != '' ? $adforest_theme['featured_first'] : FALSE;
+
 
 $sort_data = isset($_GET['sort']) && $_GET['sort'] != '' ? $_GET['sort'] : '';
 

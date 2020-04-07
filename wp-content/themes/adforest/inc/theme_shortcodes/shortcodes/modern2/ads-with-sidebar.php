@@ -66,6 +66,7 @@ if (!function_exists('adforest_adswithsidebaraja_integrateWithVC')) {
                     "value" => array(
                         __('Select Ads Type', 'adforest') => '',
                         __('Featured Ads', 'adforest') => 'feature',
+                        __('Sticky Ads', 'adforest') => 'sticky',
                         __('Simple Ads', 'adforest') => 'regular',
                         __('Both', 'adforest') => 'both'
                     ),
@@ -442,6 +443,15 @@ if (!function_exists('adforest_get_ads_with_sidebar_section')) {
             $is_feature = array('key' => '_adforest_is_feature', 'value' => 0, 'compare' => '=',);
         }
 
+        $is_sticky = array();
+        if ($ad_type == 'sticky') {
+            $is_sticky = array('key' => '_adforest_is_sticky', 'value' => 1, 'compare' => '=',);
+        } else if ($ad_type == 'both') {
+            $is_sticky = array();
+        } else {
+            $is_sticky = array('key' => '_adforest_is_sticky', 'value' => 0, 'compare' => '=',);
+        }
+
         $is_active = array('key' => '_adforest_ad_status_', 'value' => 'active', 'compare' => '=',);
 
         $ordering = 'DESC';
@@ -461,6 +471,7 @@ if (!function_exists('adforest_get_ads_with_sidebar_section')) {
             'posts_per_page' => $no_of_ads,
             'meta_query' => array(
                 $is_feature,
+                $is_sticky,
                 $is_active,
             ),
             'tax_query' => array($category, $countries_location),

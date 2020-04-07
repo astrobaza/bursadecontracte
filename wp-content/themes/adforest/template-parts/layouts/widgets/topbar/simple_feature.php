@@ -15,7 +15,7 @@ $sb_search_page = apply_filters('adforest_language_page_id', $adforest_theme['sb
          <select class="category form-control submit_on_select" name="ad">
          <option label=""></option>
     <?php
-		$conditions	=	array( 0 => __('Simple Ads','adforest'), '1' => __('Featured Ads','adforest') );
+		$conditions	=	array( 0 => __('Simple Ads','adforest'), '1' => __('Featured/Sticky Ads','adforest') );
         foreach( $conditions as $key => $val )
         {
     ?>

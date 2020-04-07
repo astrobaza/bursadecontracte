@@ -14,6 +14,19 @@ if ( is_rtl() )
 </div>';
 	$f_class = 'featured-border';
 }
+if( get_post_meta( $pid, '_adforest_is_sticky', true ) == '1' && get_post_meta($pid, '_adforest_ad_status_', true ) == 'active' )
+{
+$ribbion = 'featured-ribbon';
+if ( is_rtl() ) 
+{
+	$ribbion = 'featured-ribbon-rtl';
+}
+
+	echo '<div class="'.esc_attr( $ribbion ).'">
+<span>'.__('Sticky','adforest').'</span>
+</div>';
+	$f_class = 'featured-border';
+}
 ?>
 <div class="descs-box <?php echo esc_attr( $f_class ); ?>">
    <h1><?php the_title(); ?></h1>

@@ -59,6 +59,10 @@ while ($results->have_posts()) {
         if ($is_feature == '1') {
             $ad_class = addslashes(__('Featured', 'adforest'));
         }
+        $is_sticky = get_post_meta(get_the_ID(), '_adforest_is_sticky', true);
+        if ($is_sticky == '1') {
+            $ad_class = addslashes(__('Sticky', 'adforest'));
+        }
 
         $post_categories = wp_get_object_terms($pid, array('ad_cats'), array('orderby' => 'term_group'));
         $cat_name = '';

@@ -156,6 +156,7 @@ if (!class_exists('adforest_profile')) {
                             <ul class="dropdown-menu">
                               <li><a href="javascript:void(0);"><div class="menu-name sub-list-item" sb_action="my_ads">' . __('My Ads', 'adforest') . '</div></a></li>
                               <li><a href="javascript:void(0);"><div class="menu-name sub-list-item" sb_action="my_feature_ads">' . __('Featured Ads', 'adforest') . '</div></a></li>
+                              <li><a href="javascript:void(0);"><div class="menu-name sub-list-item" sb_action="my_sticky_ads">' . __('Sticky Ads', 'adforest') . '</div></a></li>
                               <li><a href="javascript:void(0);"><div class="menu-name sub-list-item" sb_action="my_rejected_ads">' . __('Rejected Ads', 'adforest') . '</div></a></li>
                               <li><a href="javascript:void(0);"><div class="menu-name sub-list-item" sb_action="my_inactive_ads">' . __('Inactive Ads', 'adforest') . '</div></a></li>
                               <li><a href="javascript:void(0);"><div class="menu-name sub-list-item" sb_action="my_expire_sold_ads">' . __('Expired / Sold Ads', 'adforest') . '</div></a></li>
@@ -214,6 +215,7 @@ if (!class_exists('adforest_profile')) {
             $expiry = '';
             $free_ads = '';
             $featured_ads = '';
+            $sticky_ads = '';
             $bump_ads = '';
             $paid_html = '';
             global $adforest_theme;
@@ -233,6 +235,12 @@ if (!class_exists('adforest_profile')) {
                 } else {
                     $featured_ads = __('Unlimited', 'adforest');
                 }
+                if (get_user_meta($this->user_info->ID, '_sb_sticky_ads', true) != '-1') {
+                    $sticky_ads = get_user_meta($this->user_info->ID, '_sb_sticky_ads', true);
+                } else {
+                    $sticky_ads = __('Unlimited', 'adforest');
+                }
+
                 if (get_user_meta($this->user_info->ID, '_sb_bump_ads', true) != '-1') {
                     $bump_ads = get_user_meta($this->user_info->ID, '_sb_bump_ads', true);
                 } else {
@@ -249,6 +257,7 @@ if (!class_exists('adforest_profile')) {
 
 
                 $new_package_features = '';
+                $new_package_fsticky = '';
 
                 $yes_no_arr = array(
                     'yes' => __('Yes', 'adforest'),
@@ -350,6 +359,10 @@ if (!class_exists('adforest_profile')) {
 					<dt><strong>' . __('Featured Ads Remaining', 'adforest') . ' </strong></dt>
 					<dd>
 					   ' . $featured_ads . '
+					</dd>
+					<dt><strong>' . __('Sticky Ads Remaining', 'adforest') . ' </strong></dt>
+					<dd>
+					   ' . $sticky_ads . '
 					</dd>
 
 					<dt><strong>' . __('Bump-up Ads Remaining', 'adforest') . ' </strong></dt>
@@ -734,6 +747,49 @@ if (!function_exists('adforest_make_featured')) {
     }
 
 }
+
+// Make ad sticky
+add_action('wp_ajax_sb_make_sticky', 'adforest_make_sticky');
+if (!function_exists('adforest_make_sticky')) {
+
+    function adforest_make_sticky() {
+        $ad_id = $_POST['ad_id'];
+        $user_id = get_current_user_id();
+
+        if (get_post_field('post_author', $ad_id) == $user_id) {
+
+            if (get_post_meta($ad_id, '_adforest_is_sticky', true) == '1') {
+                echo '0|' . __("This ad is sticky already.", 'adforest');
+                die();
+            }
+
+            if (get_user_meta($user_id, '_sb_sticky_ads', true) != 0) {
+                if (get_user_meta($user_id, '_sb_expire_ads', true) != '-1') {
+                    if (get_user_meta($user_id, '_sb_expire_ads', true) < date('Y-m-d')) {
+                        echo '0|' . __("Your package has expired.", 'adforest');
+                        die();
+                    }
+                }
+                $sticky_ads = get_user_meta($user_id, '_sb_sticky_ads', true);
+                $sticky_ads = $sticky_ads - 1;
+                update_user_meta($user_id, '_sb_sticky_ads', $sticky_ads);
+
+                update_post_meta($ad_id, '_adforest_is_sticky', '1');
+                update_post_meta($ad_id, '_adforest_is_sticky_date', date('Y-m-d'));
+                echo '1|' . __("This ad has been sticky successfullly.", 'adforest');
+            } else {
+                echo '0|' . __("Get package in order to make it sticky.", 'adforest');
+            }
+        } else {
+            echo '0|' . __("You must be the Ad owner to make it sticky.", 'adforest');
+        }
+
+        die();
+    }
+
+}
+
+
 /* Delete USER */
 // Bump it up
 add_action('wp_ajax_delete_site_user_func', 'adforest_delete_site_user_func');
@@ -840,7 +896,7 @@ if (!function_exists('adforest_bump_it_up')) {
                 die();
             }
         } else {
-            echo '0|' . __("You must be the Ad owner to make it featured.", 'adforest');
+            echo '0|' . __("You must be the Ad owner to make it featured or sticky", 'adforest');
         }
 
         die();
@@ -948,6 +1004,38 @@ if (!function_exists('adforest_my_feature_ads')) {
         $ads = new ads();
 
         echo adforest_returnEcho($ads->adforest_get_featured_ads_grid($args, $paged, $show_pagination, $fav_ads));
+        echo '<script>adforest_timerCounter_function();</script>';
+        die();
+    }
+
+}
+
+// ajax handler for sticky Ads
+
+add_action('wp_ajax_my_sticky_ads', 'adforest_my_sticky_ads');
+if (!function_exists('adforest_my_sticky_ads')) {
+
+    function adforest_my_sticky_ads() {
+        $profile = new adforest_profile();
+        $paged = $_POST['paged'];
+        if (!isset($paged))
+            $paged = 1;
+        $args = array(
+            'post_type' => 'ad_post',
+            'author' => $profile->user_info->ID,
+            'post_status' => 'publish',
+            'posts_per_page' => get_option('posts_per_page'),
+            'meta_key' => '_adforest_is_sticky',
+            'meta_value' => '1',
+            'paged' => $paged,
+            'order' => 'DESC',
+            'orderby' => 'ID'
+        );
+        $fav_ads = 'sticky_ads';
+        $show_pagination = 1;
+        $ads = new ads();
+
+        echo adforest_returnEcho($ads->adforest_get_sticky_ads_grid($args, $paged, $show_pagination, $fav_ads));
         echo '<script>adforest_timerCounter_function();</script>';
         die();
     }
@@ -1561,6 +1649,7 @@ if (!function_exists('adforest_check_validity')) {
                 if (get_user_meta($uid, '_sb_expire_ads', true) < date('Y-m-d')) {
                     update_user_meta($uid, '_sb_simple_ads', 0);
                     update_user_meta($uid, '_sb_featured_ads', 0);
+                    update_user_meta($uid, '_sb_sticky_ads', 0);
                     adforest_redirect_with_msg(get_the_permalink($sb_packages_page), __("Your package has been expired.", 'adforest'));
                     exit;
                 }

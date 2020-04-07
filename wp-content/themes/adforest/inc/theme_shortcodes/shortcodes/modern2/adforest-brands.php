@@ -53,6 +53,7 @@ if (!function_exists('adforest_brands_shortcode')) {
                     "value" => array(
                         __('Select Ads Type', 'adforest') => '',
                         __('Featured Ads', 'adforest') => 'feature',
+                        __('Sticky Ads', 'adforest') => 'sticky',
                         __('Simple Ads', 'adforest') => 'regular',
                         __('Both', 'adforest') => 'both'
                     ),
@@ -212,6 +213,23 @@ if (!function_exists('adforest_brands_callback')) {
                 'compare' => '=',
             );
         }
+
+        $is_sticky_br = '';
+        if ($ad_type == 'sticky') {
+            $is_sticky_br = array(
+                'key' => '_adforest_is_sticky',
+                'value' => 1,
+                'compare' => '=',
+            );
+        } else if ($ad_type == 'both') {
+            $is_sticky_br = '';
+        } else {
+            $is_sticky_br = array(
+                'key' => '_adforest_is_sticky',
+                'value' => 0,
+                'compare' => '=',
+            );
+        }
         $is_active_br = array(
             'key' => '_adforest_ad_status_',
             'value' => 'active',
@@ -235,6 +253,7 @@ if (!function_exists('adforest_brands_callback')) {
             'posts_per_page' => $no_of_ads,
             'meta_query' => array(
                 $is_feature_br,
+                $is_sticky_br,
                 $is_active_br,
             ),
             'orderby' => $order_by_br,
